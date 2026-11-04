@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#047857">
+    <meta name="description" content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays.">
+
+    <title>WanderWise - Explore the World</title>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/destinations.css">
+</head>
+<body>
+
+<div class="main-box">
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
+
+            <nav class="nav-links"> 
+                <a href="index.html" class="nav-item active">Home</a>
+                <a href="destinations.html" class="nav-item">Destinations</a>
+                <a href="hotels.html" class="nav-item">Hotels</a>
+                <a href="trip-planner.html" class="nav-item">Trip Planner</a>
+                <a href="budget-calculator.html" class="nav-item">Budget</a>
+                <a href="booking.html" class="nav-item">Booking</a>
+                <a href="favorites.html" class="nav-item favorites">
+                    <i class="fa-solid fa-heart"></i>Favorites
+                    <span class="count">0</span>
+                </a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="start-btn">Get Started</a>
+            </div>
+
+            <div class="mobile-buttons">
+                <a href="favorites.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="count">0</span></a>
+                <button class="icon-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            </div>
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="destinations.html"><i class="fa-solid fa-location-dot"></i> Destinations</a>
+            <a href="trip-planner.html"><i class="fa-solid fa-route"></i> Trip Planner</a>
+            <a href="budget-calculator.html"><i class="fa-solid fa-wallet"></i> Budget</a>
+            <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
+            <a href="booking.html"><i class="fa-solid fa-calendar-check"></i> Booking</a>
+            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Saved Favorites (0)</a>
+            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+        </div>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="app">
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+
+            <div class="container hero-content">
+                <div class="hero-left">
+                    <span class="hero-tag"><i class="fa-solid fa-compass"></i>Your Journey Starts Here</span>
+                    <h1>Explore The World, <br> <span>One Journey</span> At A Time.</h1>
+                    <p class="hero-text">
+                        Discover breathtaking destinations, craft bespoke itineraries,
+                        calculate precise travel budgets, and book verified boutique
+                        stays effortlessly.
+                    </p>
+                    <div class="hero-buttons">
+                        <a href="destinations.html" class="btn main-btn">Explore Destinations<i class="fa-solid fa-arrow-right"></i></a>
+                        <a href="trip-planner.html" class="btn border-btn"><i class="fa-solid fa-map"></i>Plan Your Trip</a>
+                    </div>
+
+                    <div class="stats">
+                        <div class="stat">
+                            <strong>50+</strong>
+                            <span>Curated Places</span>
+                        </div>
+                        <div class="stat">
+                            <strong>100+</strong>
+                            <span>Happy Travelers</span>
+                        </div>
+                        <div class="stat">
+                            <strong>20+</strong>
+                            <span>Verified Hotels</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="hero-right">
+                    <div class="hero-image">
+                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85" alt="Scenic mountain peaks and alpine lake">
+                    </div>
+                    <div class="info-card">
+                        <div class="icon-box"><i class="fa-solid fa-plane"></i></div>
+                        <div>
+                            <strong>Your Next Adventure</strong>
+                            <span>Discover handpicked getaways</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+        
+        <!-- POPULAR DESTINATIONS -->
+        <section class="section">
+            <div class="container">
+                <div class="heading">
+                    <div class="section-title">
+                        <span class="small-title">Explore The World</span>
+                        <h2>Popular Destinations</h2>
+                        <p>Find inspiration for your next unforgettable holiday journey.</p>
+                    </div>
+                    <a href="destinations.html" class="simple-link">
+                        View All Destinations
+                        <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <!-- HOME DESTINATION CARDS -->
+                <div class="destination-grid home-destination-grid" id="homeDestinations"></div>
+
+                <!-- HOME CARD TEMPLATE -->
+                <template id="homeDestinationTemplate">
+                    <article class="destination-card">
+                        <div class="destination-image-wrap">
+                            <img src="" alt="" class="destination-image" loading="lazy" decoding="async">
+                            <span class="destination-category"></span>
+
+                            <button type="button" class="favorite-btn" aria-label="Add to favorites" aria-pressed="false">
+                                <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                            </button>
+                        </div>
+
+                        <div class="destination-card-content">
+                            <div class="destination-meta">
+                                <span class="destination-country">
+                                    <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                    <span class="country-name"></span>
+                                </span>
+                                <span class="destination-rating">
+                                    <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                    <span class="rating-value"></span>
+                                </span>
+                            </div>
+
+                            <h2 class="destination-name"></h2>
+                            <p class="destination-description"></p>
+
+                            <div class="destination-card-bottom">
+                                <div class="destination-budget">
+                                    <span>Estimated Budget</span>
+                                    <strong class="destination-price"></strong>
+                                </div>
+
+                                <a href="#" class="destination-link">
+                                    View Details
+                                    <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </article>
+                </template>
+            </div>
+        </section>
+
+        <!-- FEATURES -->
+        <section class="features">
+
+            <div class="container grid grid-4">
+                <div class="feature">
+                    <div class="icon-box"><i class="fa-solid fa-location-dot"></i></div>
+
+                    <strong>Curated Destinations</strong>
+                    <p>Explore handpicked places for memorable experiences.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="icon-box"><i class="fa-solid fa-route"></i></div>
+
+                    <strong>Personalized Itineraries</strong>
+                    <p>Build a trip around your interests, dates and travel party.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="icon-box"><i class="fa-solid fa-wallet"></i></div>
+
+                    <strong>Smart Budget Planning</strong>
+                    <p>Estimate travel expenses and discover matching getaways.</p>
+                </div>
+
+                <div class="feature">
+                    <div class="icon-box"> <i class="fa-solid fa-hotel"></i></div>
+
+                    <strong>Comfortable Stays</strong>
+                    <p>Browse curated accommodation options with clear pricing.</p>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- TRIP PLANNING SECTION -->
+        <section class="section">
+
+            <div class="container plan-content">
+                <div class="plan-left">
+                    <span class="small-title">Start Planning Today</span>
+                    <h2 class="serif">A better trip begins with a thoughtful plan.</h2>
+                    <p class="gray">
+                        Choose a destination, set your dates, add the activities
+                        you love and keep all your travel details in one place.
+                    </p>
+                    <div class="plan-buttons">
+
+                        <a href="trip-planner.html" class="btn main-btn"><i class="fa-solid fa-calendar-check"></i>Create an Itinerary</a>
+                        <a href="budget-calculator.html" class="btn border-btn"><i class="fa-solid fa-calculator"></i>Calculate Budget</a>
+                    </div>
+                </div>
+
+                <div class="plan-box">
+                    <span class="small-title">Travel made easier</span>
+                    <h3 class="serif">Your plans, saved together.</h3>
+                    <p class="gray">
+                        Save favorite destinations, manage planned trips,
+                        and keep demo hotel reservation vouchers at hand.
+                    </p>
+
+                    <div class="grid grid-2 plan-links">
+                        <a href="favorites.html" class="btn border-btn"><i class="fa-solid fa-heart"></i>Favorites</a>
+                        <a href="my-trips.html" class="btn border-btn"><i class="fa-solid fa-suitcase-rolling"></i>My Trips</a>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-about">
+
+                        <div class="footer-logo">Wander<span>Wise</span>.</div>
+                        <p>
+                            Discover breathtaking destinations, craft meaningful
+                            journeys, and make every trip memorable.
+                            Your next adventure starts here.
+                        </p>
+                    </div>
+
+                    <div>
+                        <div class="footer-title">QUICK LINKS</div>
+
+                        <div class="footer-list">
+                            <a href="index.html">Home</a>
+                            <a href="destinations.html">Explore Destinations</a>
+                            <a href="trip-planner.html">Plan Your Trip</a>
+                            <a href="hotels.html">Find Hotels</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="footer-title">YOUR WANDERWISE</div>
+
+                        <div class="footer-list">
+                            <a href="budget-calculator.html">Budget Calculator</a>
+                            <a href="favorites.html">Saved Favorites</a>
+                            <a href="my-trips.html">My Trips & Stays</a>
+                            <a href="login.html">User Account</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-end">
+                    <span>© 2026 WanderWise. Explore the world, your way.All rights reserved.</span>
+                    <span>Built with precision and high performance.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<!-- JavaScript -->
+<script type="module" src="js/app.js"></script>
+<script type="module" src="js/home.js"></script>
+
+</body>
+</html>

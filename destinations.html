@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#047857">
+    <meta name="description" content="Explore beautiful destinations with WanderWise. Discover Hunza, Skardu, Istanbul, Bali, Dubai and more.">
+    <meta name="keywords" content="travel destinations, Pakistan tourism, Hunza Valley, Skardu, WanderWise">
+    <meta name="author" content="WanderWise">
+    <title>Explore Destinations | WanderWise</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/destinations.css">
+</head>
+<body>
+<div class="main-box">
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container navbar">
+            <a href="index.html" class="logo" aria-label="WanderWise Home">Wander<span>Wise</span>.</a>
+
+            <nav class="nav-links" aria-label="Main navigation">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="destinations.html" class="nav-item active" aria-current="page">Destinations</a>
+                <a href="hotels.html" class="nav-item">Hotels</a>
+                <a href="trip-planner.html" class="nav-item">Trip Planner</a>
+                <a href="budget-calculator.html" class="nav-item">Budget</a>
+                <a href="booking.html" class="nav-item">Booking</a>
+                <a href="favorites.html" class="nav-item favorites">
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                    Favorites <span class="count" aria-label="Favorite count">0</span>
+                </a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="start-btn">Get Started</a>
+            </div>
+
+            <div class="mobile-buttons">
+                <a href="favorites.html" class="icon-btn" aria-label="Favorites">
+                    <i class="fa-solid fa-heart" aria-hidden="true"></i>
+                    <span class="count">0</span>
+                </a>
+                <button type="button" class="icon-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false" aria-controls="mobile-menu">
+                    <i class="fa-solid fa-bars" aria-hidden="true"></i>
+                </button>
+            </div>
+        </div>
+
+        <nav class="mobile-menu" id="mobile-menu" aria-label="Mobile navigation">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="destinations.html" class="active"><i class="fa-solid fa-location-dot"></i> Destinations</a>
+            <a href="trip-planner.html"><i class="fa-solid fa-route"></i> Trip Planner</a>
+            <a href="budget-calculator.html"><i class="fa-solid fa-wallet"></i> Budget</a>
+            <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
+            <a href="booking.html"><i class="fa-solid fa-calendar-check"></i> Booking</a>
+            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Saved Favorites</a>
+            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+            <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+        </nav>
+    </header>
+
+    <!-- MAIN CONTENT -->
+    <main id="app">
+        <section class="destination-banner">
+            <span class="eyebrow">DISCOVER NEW PLACES</span>
+            <h1>Explore Beautiful Destinations</h1>
+            <p>Find your next adventure from our handpicked travel destinations.</p>
+        </section>
+
+        <section class="destinations-section" aria-label="Travel destinations">
+
+            <!-- SEARCH AND FILTER TOOLBAR -->
+            <div class="destination-toolbar">
+                <div class="destination-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="search" id="searchDestination" placeholder="Search destinations, countries, keywords..." aria-label="Search destinations" autocomplete="off">
+                </div>
+
+                <div class="category-filters" aria-label="Filter by category">
+                    <button type="button" class="category-filter active" data-category="All" aria-pressed="true">All</button>
+                    <button type="button" class="category-filter" data-category="Mountains" aria-pressed="false">Mountains</button>
+                    <button type="button" class="category-filter" data-category="Beach" aria-pressed="false">Beach</button>
+                    <button type="button" class="category-filter" data-category="City" aria-pressed="false">City</button>
+                </div>
+
+                <div class="destination-sort">
+                    <select id="sortDestinations" aria-label="Sort destinations">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+
+                <div class="destination-results">
+                    <span id="destinationCount" aria-live="polite">Showing 0 destinations</span>
+                </div>
+            </div>
+
+            <!-- DESTINATION CARDS -->
+            <div class="destination-grid" id="allDestinations" aria-live="polite" aria-label="Available destinations"></div>
+
+            <!-- CARD TEMPLATE -->
+            <template id="destinationTemplate">
+                <article class="destination-card">
+                    <div class="destination-image-wrap">
+                        <img src="" alt="" class="destination-image" loading="lazy" decoding="async">
+                        <span class="destination-category"></span>
+
+                        <button type="button" class="favorite-btn" aria-label="Add to favorites" aria-pressed="false">
+                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="destination-card-content">
+                        <div class="destination-meta">
+                            <span class="destination-country">
+                                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                <span class="country-name"></span>
+                            </span>
+                            <span class="destination-rating">
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <span class="rating-value"></span>
+                            </span>
+                        </div>
+
+                        <h2 class="destination-name"></h2>
+                        <p class="destination-description"></p>
+
+                        <div class="destination-card-bottom">
+                            <div class="destination-budget">
+                                <span>Estimated Budget</span>
+                                <strong class="destination-price"></strong>
+                            </div>
+
+                            <a href="#" class="destination-link">
+                                View Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </template>
+
+            <!-- NO RESULTS -->
+            <div id="noDestinations" class="no-results" role="status" hidden>
+                <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+                <h2>No destinations found</h2>
+                <p>Try another search or select a different category.</p>
+                <button type="button" id="resetDestinationFilters">Clear Filters</button>
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer id="footer">
+        <div class="footer">
+            <div class="container">
+                <div class="footer-content">
+                    <div class="footer-about">
+                        <a href="index.html" class="footer-logo">Wander<span>Wise</span>.</a>
+                        <p>Discover breathtaking destinations, craft meaningful journeys, and make every trip memorable. Your next adventure starts here.</p>
+                    </div>
+
+                    <div>
+                        <h2 class="footer-title">QUICK LINKS</h2>
+                        <div class="footer-list">
+                            <a href="index.html">Home</a>
+                            <a href="destinations.html">Explore Destinations</a>
+                            <a href="trip-planner.html">Plan Your Trip</a>
+                            <a href="hotels.html">Find Hotels</a>
+                        </div>
+                    </div>
+
+                    <div>
+                        <h2 class="footer-title">YOUR WANDERWISE</h2>
+                        <div class="footer-list">
+                            <a href="budget-calculator.html">Budget Calculator</a>
+                            <a href="favorites.html">Saved Favorites</a>
+                            <a href="my-trips.html">My Trips & Stays</a>
+                            <a href="login.html">User Account</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="footer-end">
+                    <span>© 2026 WanderWise. Explore the world, your way. All rights reserved.</span>
+                    <span>Built with precision and high performance.</span>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
+
+<script type="module" src="js/app.js"></script>
+<script type="module" src="js/destinations.js"></script>
+</body>
+</html>
