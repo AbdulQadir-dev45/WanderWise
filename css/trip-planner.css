@@ -1,0 +1,529 @@
+/* ================= PAGE HEADING ================= */
+
+.planner-hero {
+    text-align: center;
+    padding: 25px 20px 45px;
+    background: linear-gradient(180deg, #effcf6, #ffffff);
+    border-bottom: 1px solid #edf0f2;
+}
+
+.planner-hero p {
+    color: #087b60;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+    margin-bottom: 12px;
+}
+
+.planner-hero h1 {
+    color: #101c2c;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: clamp(30px, 4vw, 42px);
+    margin-bottom: 10px;
+}
+
+.planner-hero span {
+    color: #77808c;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ================= MAIN SECTION ================= */
+
+.planner-section {
+    padding: 25px 0 60px;
+}
+
+.planner-container {
+    width: 85%;
+    max-width: 1050px;
+    margin: auto;
+}
+
+.planner-card {
+    background: #ffffff;
+    border: 1px solid #e0e5e9;
+    border-radius: 16px;
+    padding: 30px 32px;
+    box-shadow: 0 5px 18px rgba(16, 28, 44, 0.035);
+}
+
+
+/* ================= FORM HEADING ================= */
+
+.form-heading {
+    margin-bottom: 23px;
+}
+
+.form-heading h2 {
+    color: #101c2c;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 22px;
+    margin-bottom: 6px;
+}
+
+.form-heading p {
+    color: #77808c;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* ================= FORM FIELDS ================= */
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+}
+
+.form-group {
+    margin-bottom: 15px;
+    width: 100%;
+}
+
+.form-group label {
+    display: block;
+    color: #344054;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    min-height: 39px;
+    padding: 10px 12px;
+    border: 1px solid #d8dee5;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #344054;
+    font-family: 'DM Sans', Arial, sans-serif;
+    font-size: 12px;
+    transition: 0.2s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #087b60;
+    box-shadow: 0 0 0 3px rgba(8, 123, 96, 0.08);
+}
+
+.form-group input::placeholder,
+.form-group textarea::placeholder {
+    color: #929aa5;
+}
+
+.form-group textarea {
+    min-height: 80px;
+    resize: vertical;
+    line-height: 1.6;
+}
+
+
+/* ================= HOTEL SECTION ================= */
+
+.hotel-section {
+    background: #f7fcf9;
+    border: 1px solid #d8eee3;
+    border-radius: 12px;
+    padding: 18px;
+    margin-bottom: 18px;
+}
+
+.hotel-section[hidden],
+.budget-details[hidden],
+.feature-section[hidden] {
+    display: none;
+}
+
+.hotel-section h3 {
+    color: #101c2c;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 17px;
+    margin-bottom: 5px;
+}
+
+.hotel-section h3 i {
+    color: #087b60;
+    margin-right: 6px;
+}
+
+.hotel-text {
+    color: #77808c;
+    font-size: 11px;
+    margin-bottom: 15px;
+}
+
+.hotel-details {
+    display: none;
+    align-items: center;
+    gap: 13px;
+    background: #ffffff;
+    border: 1px solid #e0e5e9;
+    border-radius: 9px;
+    padding: 10px;
+    margin-top: 12px;
+}
+
+.hotel-details.show {
+    display: flex;
+}
+
+.hotel-details img {
+    width: 85px;
+    height: 65px;
+    object-fit: cover;
+    border-radius: 7px;
+}
+
+.hotel-details h4 {
+    color: #101c2c;
+    font-size: 12px;
+    margin-bottom: 5px;
+}
+
+.hotel-details p {
+    color: #77808c;
+    font-size: 10px;
+    margin-bottom: 5px;
+}
+
+.hotel-details strong {
+    color: #087b60;
+    font-size: 11px;
+}
+
+
+/* ================= ACTIVITIES ================= */
+
+.activities-group {
+    margin-top: 3px;
+}
+
+.activities-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+}
+
+.activity-option {
+    cursor: pointer;
+}
+
+.activity-option input {
+    display: none;
+}
+
+.activity-option span {
+    min-height: 36px;
+    display: flex;
+    align-items: center;
+    padding: 8px 10px;
+    border: 1px solid #cbded5;
+    border-radius: 9px;
+    background: #ffffff;
+    color: #475569;
+    font-size: 9px;
+    font-weight: 700;
+    transition: 0.2s;
+}
+
+.activity-option input:checked + span {
+    border-color: #087b60;
+    background: #ecfdf5;
+    color: #08664f;
+}
+
+
+/* ================= BUDGET ESTIMATE ================= */
+
+.budget-estimate {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 15px;
+    padding: 16px;
+    margin-top: 20px;
+    border: 1px solid #b9e8d4;
+    border-radius: 12px;
+    background: #effcf6;
+}
+
+.budget-estimate p {
+    color: #087b60;
+    font-size: 9px;
+    font-weight: 800;
+    letter-spacing: 1.3px;
+    margin-bottom: 5px;
+}
+
+.budget-estimate span {
+    color: #77808c;
+    font-size: 10px;
+}
+
+.budget-estimate h2 {
+    color: #08664f;
+    font-size: 24px;
+    white-space: nowrap;
+}
+
+
+/* ================= BUDGET DETAILS ================= */
+
+.budget-details {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    margin-top: 12px;
+}
+
+.budget-details div {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    padding: 12px;
+    border: 1px solid #e5eaf0;
+    border-radius: 9px;
+}
+
+.budget-details span {
+    color: #77808c;
+    font-size: 10px;
+}
+
+.budget-details strong {
+    color: #344054;
+    font-size: 12px;
+}
+
+
+/* ================= FEATURE SECTIONS ================= */
+
+.feature-section {
+    margin-top: 20px;
+    padding: 20px;
+    background: #ffffff;
+    border: 1px solid #e0e5e9;
+    border-radius: 12px;
+}
+
+.feature-section h3 i {
+    color: #087b60;
+    margin-right: 6px;
+}
+
+
+/* ================= ITINERARY ================= */
+
+.itinerary-list {
+    display: grid;
+    gap: 10px;
+}
+
+.itinerary-day {
+    padding: 13px;
+    border: 1px solid #e5eaf0;
+    border-left: 3px solid #087b60;
+    border-radius: 9px;
+    background: #fbfdfc;
+}
+
+.itinerary-day h4 {
+    color: #087b60;
+    font-size: 12px;
+    margin-bottom: 6px;
+}
+
+.itinerary-day p {
+    color: #667085;
+    font-size: 11px;
+    line-height: 1.7;
+    margin: 0;
+}
+
+
+/* ================= PLACES TO VISIT ================= */
+
+.places-list {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 9px;
+}
+
+.place-item {
+    padding: 12px;
+    background: #f7fcf9;
+    border: 1px solid #e0eee7;
+    border-radius: 9px;
+    color: #344054;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.place-item i {
+    color: #087b60;
+    margin-right: 6px;
+}
+
+
+/* ================= BUTTONS ================= */
+
+.planner-buttons {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-top: 19px;
+}
+
+.save-trip-btn,
+.existing-trips-btn {
+    min-height: 38px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    padding: 10px 16px;
+    border: none;
+    border-radius: 9px;
+    font-size: 11px;
+    font-weight: 800;
+    text-decoration: none;
+    cursor: pointer;
+    transition: 0.2s;
+}
+
+.save-trip-btn {
+    background: #087b60;
+    color: #ffffff;
+}
+
+.save-trip-btn:hover {
+    background: #065f4a;
+}
+
+.existing-trips-btn {
+    background: #f1f4f8;
+    color: #344054;
+}
+
+.existing-trips-btn:hover {
+    background: #e5eaf0;
+}
+
+#message {
+    margin-top: 12px;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+#message.success {
+    color: #087b60;
+}
+
+#message.error {
+    color: #c2410c;
+}
+
+
+/* ================= RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .planner-container {
+        width: 90%;
+    }
+
+    .activities-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .planner-hero {
+        padding: 25px 15px 35px;
+    }
+
+    .planner-hero h1 {
+        font-size: 29px;
+    }
+
+    .planner-container {
+        width: 92%;
+    }
+
+    .planner-card {
+        padding: 21px 16px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+        gap: 0;
+    }
+
+    .budget-estimate {
+        align-items: flex-start;
+        flex-direction: column;
+    }
+
+    .budget-details {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-section {
+        padding: 15px;
+    }
+
+    .places-list {
+        grid-template-columns: 1fr;
+    }
+
+    .planner-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .save-trip-btn,
+    .existing-trips-btn {
+        width: 100%;
+    }
+
+}
+
+
+/* ================= COMPACT ITINERARY ================= */
+
+.itinerary-toggle {
+    margin-top: 12px;
+    padding: 8px 14px;
+    border: 1px solid #087b60;
+    border-radius: 7px;
+    background: #ffffff;
+    color: #087b60;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.itinerary-toggle:hover {
+    background: #087b60;
+    color: #ffffff;
+}
+
+.itinerary-note {
+    grid-column: 1 / -1;
+    color: #77808c;
+    font-size: 11px;
+    margin: 3px 0 0;
+}
