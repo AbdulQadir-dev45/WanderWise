@@ -1,0 +1,758 @@
+
+/* ================= BUDGET SECTION ================= */
+
+.budget-section {
+    padding: 45px 0 70px;
+    color: #101c2c;
+}
+
+.budget-section .container {
+    width: 85%;
+    max-width: 1150px;
+    margin: auto;
+}
+
+
+/* ================= HEADING ================= */
+
+.budget-heading {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.budget-heading > p {
+    color: #087b60;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 3px;
+    margin-bottom: 10px;
+}
+
+.budget-heading h1 {
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 38px;
+    margin-bottom: 12px;
+    color: #101c2c;
+}
+
+.budget-heading span {
+    display: block;
+    max-width: 650px;
+    margin: auto;
+    color: #77808c;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+
+/* ================= BUDGET INPUT BOX ================= */
+
+.budget-box {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 25px;
+    background: #ffffff;
+    border: 1px solid #e0e5e9;
+    border-radius: 17px;
+    box-shadow: 0 8px 25px rgba(16, 28, 44, 0.06);
+}
+
+.budget-inputs {
+    display: flex;
+    align-items: end;
+    gap: 18px;
+}
+
+.input-group {
+    flex: 1;
+    min-width: 0;
+}
+
+.input-group label {
+    display: block;
+    margin-bottom: 9px;
+    color: #344054;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.input-group input {
+    width: 100%;
+    height: 47px;
+    padding: 0 14px;
+    border: 1px solid #d8dee5;
+    border-radius: 9px;
+    outline: none;
+    background: #ffffff;
+    color: #101c2c;
+    font: inherit;
+    font-size: 13px;
+    transition: 0.25s;
+}
+
+.input-group input:focus {
+    border-color: #087b60;
+    box-shadow: 0 0 0 3px rgba(8, 123, 96, 0.10);
+}
+
+.update-btn {
+    min-height: 47px;
+    padding: 0 19px;
+    border: 1px solid #087b60;
+    border-radius: 9px;
+    background: #087b60;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+    white-space: nowrap;
+}
+
+.update-btn:hover {
+    background: #065f4a;
+    border-color: #065f4a;
+}
+
+
+/* ================= BUDGET SUMMARY ================= */
+
+.budget-summary {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 12px 20px;
+    margin-top: 22px;
+    padding: 16px 18px;
+    border-radius: 11px;
+    background: #f0f8f5;
+}
+
+.budget-summary p {
+    margin: 0;
+    color: #667085;
+    font-size: 12px;
+    line-height: 1.7;
+}
+
+.budget-summary strong {
+    color: #087b60;
+}
+
+
+/* ================= MATCH HEADING ================= */
+
+.match-heading {
+    grid-column: 1 / -1;
+    margin: 34px 0 0;
+    text-align: center;
+}
+
+.match-heading h2 {
+    margin-bottom: 7px;
+    color: #101c2c;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 27px;
+}
+
+.match-heading p {
+    margin-bottom: 5px;
+    color: #77808c;
+    font-size: 13px;
+}
+
+.match-heading small {
+    color: #98a1ad;
+    font-size: 10px;
+}
+
+
+/* ================= DESTINATION GRID ================= */
+
+.destination-container {
+    width: 100%;
+    margin: 30px 0 0;
+}
+
+.destination-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 18px;
+}
+
+
+/* ================= DESTINATION CARD ================= */
+
+.destination-card {
+    min-width: 0;
+    overflow: hidden;
+    border: 1px solid #e0e5e9;
+    border-radius: 17px;
+    background: #ffffff;
+    box-shadow: 0 5px 15px rgba(16, 28, 44, 0.04);
+    transition: 0.3s;
+}
+
+.destination-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(16, 28, 44, 0.10);
+}
+
+
+/* ================= DESTINATION IMAGE ================= */
+
+.destination-image {
+    position: relative;
+    height: 165px;
+    overflow: hidden;
+    background: #edf1f3;
+}
+
+.destination-image img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: 0.4s;
+}
+
+.destination-card:hover .destination-image img {
+    transform: scale(1.04);
+}
+
+.budget-section .category {
+    position: absolute;
+    top: 14px;
+    left: 14px;
+    padding: 7px 13px;
+    border-radius: 20px;
+    background: #f4f9f6;
+    color: #087b60;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+
+/* ================= CARD CONTENT ================= */
+
+.destination-content {
+    padding: 15px;
+}
+
+.destination-content h2 {
+    margin-bottom: 7px;
+    color: #101c2c;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 19px;
+}
+
+.destination-content > p {
+    min-height: 65px;
+    margin-bottom: 12px;
+    color: #77808c;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+
+/* ================= PRICE BOX ================= */
+
+.price-box {
+    padding: 9px 11px;
+    border: 1px solid #d2f1e2;
+    border-radius: 13px;
+    background: #eafbf4;
+}
+
+.price-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 10px;
+    padding: 7px 0;
+    color: #667085;
+    font-size: 10px;
+}
+
+.price-row + .price-row {
+    border-top: 1px solid #d8eee3;
+}
+
+.price-row strong {
+    color: #101c2c;
+    text-align: right;
+    font-size: 10px;
+}
+
+
+/* ================= CARD BUTTONS ================= */
+
+.card-buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 7px;
+    margin-top: 13px;
+    padding-top: 12px;
+    border-top: 1px solid #edf0f2;
+}
+
+.details-btn,
+.plan-btn {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    min-height: 36px;
+    padding: 8px 9px;
+    border-radius: 9px;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.details-btn {
+    border: 1px solid #cbd2d8;
+    background: #ffffff;
+    color: #344054;
+}
+
+.plan-btn {
+    border: 1px solid #087b60;
+    background: #087b60;
+    color: #ffffff;
+}
+
+.details-btn:hover {
+    background: #f1f5f4;
+}
+
+.plan-btn:hover {
+    border-color: #065f4a;
+    background: #065f4a;
+}
+
+
+/* ================= NO MATCH MESSAGE ================= */
+
+.no-match {
+    grid-column: 1 / -1;
+    padding: 45px 20px;
+    border: 1px solid #e0e5e9;
+    border-radius: 15px;
+    background: #ffffff;
+    text-align: center;
+}
+
+.no-match h3 {
+    margin-bottom: 10px;
+    color: #101c2c;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 23px;
+}
+
+.no-match p {
+    color: #77808c;
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+
+/* ================= DESTINATION DETAILS MODAL ================= */
+
+body.modal-open {
+    overflow: hidden;
+}
+
+.details-modal {
+    position: fixed;
+    z-index: 9999;
+    inset: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 22px;
+    overflow-y: auto;
+    background: rgba(10, 20, 32, 0.76);
+    backdrop-filter: blur(4px);
+}
+
+.details-modal-content {
+    position: relative;
+    width: 100%;
+    max-width: 760px;
+    max-height: 92vh;
+    overflow-y: auto;
+    border-radius: 18px;
+    background: #ffffff;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    animation: modal-appear 0.25s ease;
+}
+
+@keyframes modal-appear {
+
+    from {
+        opacity: 0;
+        transform: translateY(12px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+}
+
+
+/* ================= MODAL CLOSE BUTTON ================= */
+
+.close-details {
+    position: absolute;
+    z-index: 2;
+    top: 14px;
+    right: 14px;
+    display: grid;
+    place-items: center;
+    width: 38px;
+    height: 38px;
+    border: 0;
+    border-radius: 50%;
+    background: rgba(16, 28, 44, 0.75);
+    color: #ffffff;
+    font-size: 17px;
+    cursor: pointer;
+}
+
+
+/* ================= MODAL IMAGE ================= */
+
+.details-image {
+    position: relative;
+    height: 270px;
+    overflow: hidden;
+    background: #edf1f3;
+}
+
+.details-image::after {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        transparent 25%,
+        rgba(2, 15, 25, 0.88)
+    );
+    content: "";
+}
+
+.details-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.details-image-overlay {
+    position: absolute;
+    z-index: 1;
+    right: 25px;
+    bottom: 22px;
+    left: 25px;
+    color: #ffffff;
+}
+
+
+/* ================= POPUP DESTINATION BADGES ================= */
+/* Same badge design as destination-details.css */
+
+.details-badges {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-bottom: 13px;
+}
+
+.details-modal .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    padding: 7px 11px;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 30px;
+    background: rgba(255, 255, 255, 0.19);
+    color: #ffffff;
+    font-size: 11px;
+    font-weight: 700;
+    backdrop-filter: blur(8px);
+}
+
+.details-modal .hero-badge i {
+    color: #ffffff;
+}
+
+.details-modal .hero-badge .fa-star {
+    color: #f5c451;
+}
+
+.details-image-overlay h2 {
+    margin: 0;
+    color: #ffffff;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.2;
+}
+
+
+/* ================= MODAL CONTENT ================= */
+
+.details-info {
+    padding: 25px;
+}
+
+.popup-detail-section {
+    margin-bottom: 23px;
+}
+
+.popup-detail-section h3,
+.popup-cost h3 {
+    margin-bottom: 10px;
+    color: #101c2c;
+    font-family: 'Playfair Display', Georgia, serif;
+    font-size: 20px;
+}
+
+.popup-detail-section p {
+    margin: 0;
+    color: #667085;
+    font-size: 13px;
+    line-height: 1.8;
+}
+
+
+/* ================= HIGHLIGHTS ================= */
+
+.popup-highlights-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 11px;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.popup-highlights-list li {
+    display: flex;
+    align-items: flex-start;
+    gap: 9px;
+    color: #475467;
+    font-size: 12px;
+    line-height: 1.6;
+}
+
+.popup-highlights-list i {
+    margin-top: 3px;
+    color: #087b60;
+}
+
+
+/* ================= RECOMMENDED SEASON ================= */
+
+.popup-season {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    margin-bottom: 22px;
+    padding: 16px;
+    border: 1px solid #dceee5;
+    border-radius: 12px;
+    background: #f0f8f5;
+    color: #087b60;
+}
+
+.popup-season > i {
+    font-size: 23px;
+}
+
+.popup-season div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.popup-season strong {
+    color: #101c2c;
+    font-size: 12px;
+}
+
+.popup-season span {
+    color: #667085;
+    font-size: 12px;
+}
+
+
+/* ================= ESTIMATED TRIP COST ================= */
+
+.popup-cost {
+    padding: 17px;
+    border: 1px solid #e0e5e9;
+    border-radius: 12px;
+}
+
+.popup-cost h3 {
+    font-size: 18px;
+}
+
+.popup-cost-row {
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    padding: 9px 0;
+    border-top: 1px solid #edf0f2;
+    color: #667085;
+    font-size: 12px;
+}
+
+.popup-cost-row strong {
+    color: #087b60;
+    text-align: right;
+}
+
+.popup-cost > p {
+    margin: 10px 0 0;
+    color: #98a1ad;
+    font-size: 10px;
+    line-height: 1.6;
+}
+
+
+/* ================= BACK BUTTON ================= */
+
+.close-details-btn {
+    width: 100%;
+    min-height: 44px;
+    margin-top: 18px;
+    border: 1px solid #087b60;
+    border-radius: 9px;
+    background: #087b60;
+    color: #ffffff;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.close-details-btn:hover {
+    border-color: #065f4a;
+    background: #065f4a;
+}
+
+
+/* ================= TABLET RESPONSIVE ================= */
+
+@media (max-width: 900px) {
+
+    .destination-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+}
+
+
+/* ================= MOBILE RESPONSIVE ================= */
+
+@media (max-width: 600px) {
+
+    .budget-section .container {
+        width: 92%;
+    }
+
+    .budget-heading h1 {
+        font-size: 30px;
+    }
+
+    .budget-inputs {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .update-btn {
+        width: 100%;
+    }
+
+    .destination-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .destination-image {
+        height: 200px;
+    }
+
+    .destination-content {
+        padding: 16px;
+    }
+
+    .destination-content h2 {
+        font-size: 21px;
+    }
+
+    .destination-content > p {
+        min-height: auto;
+        font-size: 12px;
+    }
+
+    .budget-summary {
+        flex-direction: column;
+    }
+
+    .details-badges {
+        gap: 6px;
+    }
+
+    .details-modal .hero-badge {
+        padding: 6px 8px;
+        font-size: 9px;
+    }
+
+    .details-image-overlay h2 {
+        font-size: 25px;
+    }
+
+    .details-modal {
+        align-items: flex-start;
+        padding: 10px;
+    }
+
+    .details-modal-content {
+        max-height: 96vh;
+        border-radius: 13px;
+    }
+
+    .details-image {
+        height: 210px;
+    }
+
+    .details-image-overlay {
+        right: 17px;
+        bottom: 17px;
+        left: 17px;
+    }
+
+    .details-info {
+        padding: 18px;
+    }
+
+    .popup-highlights-list {
+        grid-template-columns: 1fr;
+    }
+
+    .card-buttons {
+        flex-wrap: wrap;
+    }
+
+    .details-btn,
+    .plan-btn {
+        flex: 1;
+    }
+
+}

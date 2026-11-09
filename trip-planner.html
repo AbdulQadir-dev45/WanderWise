@@ -1,126 +1,452 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="theme-color" content="#047857">
-    <meta name="description" content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays.">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#047857" />
+    <meta
+      name="description"
+      content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays."
+    />
 
     <title>WanderWise - Explore the World</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
+      rel="stylesheet"
+    />
 
     <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    />
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css">
-</head>
-<body>
-
-<div class="main-box">
-
-    <!-- HEADER -->
-    <header id="header">
+    <link rel="stylesheet" href="css/styles.css" />
+    <link rel="stylesheet" href="css/trip-planner.css" />
+  </head>
+  <body>
+    <div class="main-box">
+      <!-- HEADER -->
+      <header id="header">
         <div class="container navbar">
-            <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
+          <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
 
-            <nav class="nav-links"> 
-                <a href="index.html" class="nav-item">Home</a>
-                <a href="destinations.html" class="nav-item">Destinations</a>
-                <a href="hotels.html" class="nav-item">Hotels</a>
-                <a href="trip-planner.html" class="nav-item active" aria-current="page">Trip Planner</a>
-                <a href="budget-calculator.html" class="nav-item">Budget</a>
-                <a href="booking.html" class="nav-item">Booking</a>
-                <a href="my-trips.html" class="nav-item">My Trips</a>
-                <a href="favorites.html" class="nav-item favorites">
-                    <i class="fa-solid fa-heart"></i>Favorites
-                    <span class="count">0</span>
-                </a>
-            </nav>
+          <nav class="nav-links">
+            <a href="index.html" class="nav-item">Home</a>
+            <a href="destinations.html" class="nav-item">Destinations</a>
+            <a href="hotels.html" class="nav-item">Hotels</a>
+            <a
+              href="trip-planner.html"
+              class="nav-item active"
+              aria-current="page"
+              >Trip Planner</a
+            >
+            <a href="budget-calculator.html" class="nav-item">Budget</a>
+            <a href="booking.html" class="nav-item">Booking</a>
+            <a href="my-trips.html" class="nav-item">My Trips</a>
+            <a href="favorites.html" class="nav-item favorites">
+              <i class="fa-solid fa-heart"></i>Favorites
+              <span class="count">0</span>
+            </a>
+          </nav>
 
-            <div class="nav-buttons">
-                <a href="login.html" class="login-btn">Login</a>
-                <a href="signup.html" class="start-btn">Get Started</a>
-            </div>
+          <div class="nav-buttons">
+            <a href="login.html" class="login-btn">Login</a>
+            <a href="signup.html" class="start-btn">Get Started</a>
+          </div>
 
-            <div class="mobile-buttons">
-                <a href="favorites.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="count">0</span></a>
-                <button class="icon-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
-            </div>
+          <div class="mobile-buttons">
+            <a href="favorites.html" class="icon-btn" aria-label="Favorites"
+              ><i class="fa-solid fa-heart"></i><span class="count">0</span></a
+            >
+            <button
+              class="icon-btn"
+              id="menu-btn"
+              aria-label="Toggle navigation"
+              aria-expanded="false"
+            >
+              <i class="fa-solid fa-bars"></i>
+            </button>
+          </div>
         </div>
 
         <div class="mobile-menu" id="mobile-menu">
-            <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
-            <a href="destinations.html"><i class="fa-solid fa-location-dot"></i> Destinations</a>
-            <a href="trip-planner.html"><i class="fa-solid fa-route"></i> Trip Planner</a>
-            <a href="budget-calculator.html"><i class="fa-solid fa-wallet"></i> Budget</a>
-            <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
-            <a href="booking.html"><i class="fa-solid fa-calendar-check"></i> Booking</a>
-            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Saved Favorites (0)</a>
-            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-            <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+          <a href="index.html" class="active"
+            ><i class="fa-solid fa-house"></i> Home</a
+          >
+          <a href="destinations.html"
+            ><i class="fa-solid fa-location-dot"></i> Destinations</a
+          >
+          <a href="trip-planner.html"
+            ><i class="fa-solid fa-route"></i> Trip Planner</a
+          >
+          <a href="budget-calculator.html"
+            ><i class="fa-solid fa-wallet"></i> Budget</a
+          >
+          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
+          <a href="booking.html"
+            ><i class="fa-solid fa-calendar-check"></i> Booking</a
+          >
+          <a href="favorites.html"
+            ><i class="fa-solid fa-heart"></i> Saved Favorites (0)</a
+          >
+          <a href="login.html"
+            ><i class="fa-solid fa-right-to-bracket"></i> Login</a
+          >
+          <a href="signup.html"
+            ><i class="fa-solid fa-user-plus"></i> Create Account</a
+          >
         </div>
-    </header>
+      </header>
 
-    <!-- MAIN CONTENT -->
-    <main id="app">
-        
+      <!-- MAIN CONTENT -->
+      <main id="app">
+        <!-- ================= PAGE HEADING ================= -->
 
-    </main>
+        <section class="planner-hero">
+          <p>MAKE YOUR DREAM TRIP</p>
 
-    <!-- FOOTER -->
-    <footer id="footer">
+          <h1>Plan Your Perfect Journey</h1>
+
+          <span>
+            Choose your destination, dates, travel party, and activities to
+            build and save a personalized itinerary.
+          </span>
+        </section>
+
+        <!-- ================= TRIP PLANNER FORM ================= -->
+
+        <section class="planner-section">
+          <div class="planner-container">
+            <form id="tripForm">
+              <div class="planner-card">
+                <div class="form-heading">
+                  <h2>Trip Specifications</h2>
+
+                  <p>
+                    Customize each detail of your holiday. We automatically
+                    estimate your budget as you adjust dates and travelers.
+                  </p>
+                </div>
+
+                <!-- Trip Name -->
+
+                <div class="form-group">
+                  <label for="tripName">TRIP NAME</label>
+
+                  <input
+                    type="text"
+                    id="tripName"
+                    placeholder="e.g. Summer Family Expedition to Northern Valleys"
+                  />
+                </div>
+
+                <!-- Destination and Travelers -->
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="destination">DESTINATION</label>
+
+                    <select id="destination" required>
+                      <option value="">Select Destination</option>
+                    </select>
+                  </div>
+
+                  <div class="form-group">
+                    <label for="travelers">NUMBER OF TRAVELERS</label>
+
+                    <input
+                      type="number"
+                      id="travelers"
+                      min="1"
+                      value="1"
+                      required
+                    />
+                  </div>
+                </div>
+
+                <!-- Hotel Selection -->
+
+                <div class="hotel-section" id="hotelSection" hidden>
+                  <h3>
+                    <i class="fa-solid fa-hotel"></i>
+                    Select Your Hotel
+                  </h3>
+
+                  <p class="hotel-text" id="hotelText">
+                    Choose a hotel for your destination.
+                  </p>
+
+                  <div class="form-group">
+                    <label for="hotel">AVAILABLE HOTELS</label>
+
+                    <select id="hotel">
+                      <option value="">Select Hotel</option>
+                    </select>
+                  </div>
+
+                  <div id="hotelDetails" class="hotel-details"></div>
+                </div>
+
+                <!-- Travel Dates -->
+
+                <div class="form-grid">
+                  <div class="form-group">
+                    <label for="departureDate">DEPARTURE DATE</label>
+
+                    <input type="date" id="departureDate" required />
+                  </div>
+
+                  <div class="form-group">
+                    <label for="returnDate">RETURN DATE</label>
+
+                    <input type="date" id="returnDate" required />
+                  </div>
+                </div>
+
+                <!-- Activities -->
+
+                <div class="form-group activities-group">
+                  <label>PREFERRED ACTIVITIES</label>
+
+                  <div class="activities-grid">
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Sightseeing"
+                        checked
+                      />
+                      <span>Sightseeing</span>
+                    </label>
+
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Hiking & Trekking"
+                        checked
+                      />
+                      <span>Hiking & Trekking</span>
+                    </label>
+
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Shopping"
+                      />
+                      <span>Shopping</span>
+                    </label>
+
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Photography"
+                      />
+                      <span>Photography</span>
+                    </label>
+
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Relaxation & Spa"
+                      />
+                      <span>Relaxation & Spa</span>
+                    </label>
+
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Water Sports"
+                      />
+                      <span>Water Sports</span>
+                    </label>
+
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Food & Culinary Tours"
+                      />
+                      <span>Food & Culinary Tours</span>
+                    </label>
+
+                    <label class="activity-option">
+                      <input
+                        type="checkbox"
+                        name="activities"
+                        value="Cultural Heritage"
+                      />
+                      <span>Cultural Heritage</span>
+                    </label>
+                  </div>
+                </div>
+
+                <!-- Trip Notes -->
+
+                <div class="form-group">
+                  <label for="tripNotes">TRIP NOTES & ITINERARY IDEAS</label>
+
+                  <textarea
+                    id="tripNotes"
+                    rows="3"
+                    placeholder="e.g. Flight booked on Saturday, bring trekking shoes, arrange a jeep safari..."
+                  ></textarea>
+                </div>
+
+                <!-- Budget Estimate -->
+
+                <div class="budget-estimate">
+                  <div>
+                    <p>CALCULATED BUDGET ESTIMATE</p>
+
+                    <span id="budgetDescription">
+                      Select your destination and dates.
+                    </span>
+                  </div>
+
+                  <h2 id="estimatedBudget">PKR 0</h2>
+                </div>
+
+                <!-- Budget Details -->
+
+                <div class="budget-details" id="budgetDetails" hidden>
+                  <div>
+                    <span>Destination Estimate</span>
+                    <strong id="destinationPrice">PKR 0</strong>
+                  </div>
+
+                  <div>
+                    <span>Hotel Estimate</span>
+                    <strong id="hotelPrice">PKR 0</strong>
+                  </div>
+
+                  <div>
+                    <span>Trip Duration</span>
+                    <strong id="totalDays">0 nights</strong>
+                  </div>
+                </div>
+
+                <!-- Day Wise Itinerary -->
+
+                <div class="feature-section" id="itinerarySection" hidden>
+                  <h3>
+                    <i class="fa-solid fa-calendar-days"></i>
+                    Your Day-wise Itinerary
+                  </h3>
+
+                  <p class="feature-description">
+                    A suggested travel schedule based on your trip duration and
+                    selected activities.
+                  </p>
+
+                  <div id="itineraryList" class="itinerary-list"></div>
+
+                  <button
+                    type="button"
+                    id="itineraryToggle"
+                    class="itinerary-toggle"
+                    hidden
+                  >
+                    Show all days
+                  </button>
+                </div>
+
+                <!-- Places to Visit -->
+
+                <div class="feature-section" id="placesSection" hidden>
+                  <h3>
+                    <i class="fa-solid fa-location-dot"></i>
+                    Places to Visit
+                  </h3>
+
+                  <p class="feature-description">
+                    Explore suggested attractions at your selected destination.
+                  </p>
+
+                  <div id="placesList" class="places-list"></div>
+                </div>
+
+                <!-- Buttons -->
+
+                <div class="planner-buttons">
+                  <button type="submit" class="save-trip-btn">
+                    Save My Trip
+                    <i class="fa-solid fa-arrow-right"></i>
+                  </button>
+
+                  <a href="my-trips.html" class="existing-trips-btn">
+                    View Existing Trips
+                  </a>
+                </div>
+
+                <p id="message"></p>
+              </div>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <!-- FOOTER -->
+      <footer id="footer">
         <div class="footer">
-            <div class="container">
-                <div class="footer-content">
-                    <div class="footer-about">
+          <div class="container">
+            <div class="footer-content">
+              <div class="footer-about">
+                <div class="footer-logo">Wander<span>Wise</span>.</div>
+                <p>
+                  Discover breathtaking destinations, craft meaningful journeys,
+                  and make every trip memorable. Your next adventure starts
+                  here.
+                </p>
+              </div>
 
-                        <div class="footer-logo">Wander<span>Wise</span>.</div>
-                        <p>
-                            Discover breathtaking destinations, craft meaningful
-                            journeys, and make every trip memorable.
-                            Your next adventure starts here.
-                        </p>
-                    </div>
+              <div>
+                <div class="footer-title">QUICK LINKS</div>
 
-                    <div>
-                        <div class="footer-title">QUICK LINKS</div>
-
-                        <div class="footer-list">
-                            <a href="index.html">Home</a>
-                            <a href="destinations.html">Explore Destinations</a>
-                            <a href="trip-planner.html">Plan Your Trip</a>
-                            <a href="hotels.html">Find Hotels</a>
-                        </div>
-                    </div>
-
-                    <div>
-                        <div class="footer-title">YOUR WANDERWISE</div>
-
-                        <div class="footer-list">
-                            <a href="budget-calculator.html">Budget Calculator</a>
-                            <a href="favorites.html">Saved Favorites</a>
-                            <a href="my-trips.html">My Trips & Stays</a>
-                            <a href="login.html">User Account</a>
-                        </div>
-                    </div>
+                <div class="footer-list">
+                  <a href="index.html">Home</a>
+                  <a href="destinations.html">Explore Destinations</a>
+                  <a href="trip-planner.html">Plan Your Trip</a>
+                  <a href="hotels.html">Find Hotels</a>
                 </div>
+              </div>
 
-                <div class="footer-end">
-                    <span>© 2026 WanderWise. Explore the world, your way.All rights reserved.</span>
-                    <span>Built with precision and high performance.</span>
+              <div>
+                <div class="footer-title">YOUR WANDERWISE</div>
+
+                <div class="footer-list">
+                  <a href="budget-calculator.html">Budget Calculator</a>
+                  <a href="favorites.html">Saved Favorites</a>
+                  <a href="my-trips.html">My Trips & Stays</a>
+                  <a href="login.html">User Account</a>
                 </div>
+              </div>
             </div>
+
+            <div class="footer-end">
+              <span
+                >© 2026 WanderWise. Explore the world, your way.All rights
+                reserved.</span
+              >
+              <span>Built with precision and high performance.</span>
+            </div>
+          </div>
         </div>
-    </footer>
-</div>
+      </footer>
+    </div>
 
-<!-- JavaScript -->
-<script type="module" src="js/app.js"></script>
-
-</body>
+    <!-- JavaScript -->
+    <script type="module" src="js/app.js"></script>
+    <script type="module" src="js/trip-planner.js"></script>
+  </body>
 </html>
