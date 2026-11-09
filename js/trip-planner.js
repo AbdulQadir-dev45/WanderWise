@@ -41,7 +41,6 @@ const placesSection = document.getElementById("placesSection");
 const placesList = document.getElementById("placesList");
 
 let itineraryExpanded = false;
-
 let selectedDestination = null;
 let selectedHotel = null;
 
@@ -56,11 +55,8 @@ function formatPrice(price) {
 function loadDestinations() {
   destinations.forEach(function (place) {
     const option = document.createElement("option");
-
     option.value = place.id;
-
     option.textContent = place.name + ", " + place.country;
-
     destination.appendChild(option);
   });
 }
@@ -77,20 +73,14 @@ function getHotels(place) {
 
 function loadHotels(place) {
   hotel.innerHTML = '<option value="">Select Hotel</option>';
-
   hotelDetails.innerHTML = "";
-
   hotelDetails.classList.remove("show");
-
   selectedHotel = null;
-
   hotel.disabled = false;
 
   if (!place) {
     hotelSection.hidden = true;
-
     updateBudget();
-
     return;
   }
 
@@ -100,19 +90,14 @@ function loadHotels(place) {
 
   if (availableHotels.length === 0) {
     hotel.disabled = true;
-
     hotelText.textContent = "No hotels available for this destination.";
-
     updateBudget();
-
     return;
   }
 
   hotelText.textContent = "Select a hotel for your stay.";
-
   availableHotels.forEach(function (item) {
     const option = document.createElement("option");
-
     option.value = item.id;
 
     option.textContent =
@@ -129,26 +114,17 @@ function loadHotels(place) {
 function showHotel(item) {
   if (!item) {
     hotelDetails.innerHTML = "";
-
     hotelDetails.classList.remove("show");
-
     return;
   }
 
   hotelDetails.innerHTML = `
-
         <img src="${item.image}" alt="${item.name}">
-
         <div>
-
             <h4>${item.name}</h4>
-
             <p>${item.location}</p>
-
             <strong>${formatPrice(item.price)} / night</strong>
-
         </div>
-
     `;
 
   hotelDetails.classList.add("show");
@@ -160,13 +136,9 @@ function getNights() {
   if (!departureDate.value || !returnDate.value) {
     return 0;
   }
-
   const start = new Date(departureDate.value);
-
   const end = new Date(returnDate.value);
-
   const difference = end - start;
-
   return Math.round(difference / (1000 * 60 * 60 * 24));
 }
 
@@ -174,22 +146,15 @@ function getNights() {
 
 function updateBudget() {
   const totalTravelers = Number(travelers.value) || 1;
-
   const nights = getNights();
 
   if (!selectedDestination) {
     estimatedBudget.textContent = formatPrice(0);
-
     budgetDescription.textContent = "Select your destination and dates.";
-
     budgetDetails.hidden = true;
-
     itinerarySection.hidden = true;
-
     itineraryToggle.hidden = true;
-
     placesSection.hidden = true;
-
     return;
   }
 
@@ -202,15 +167,10 @@ function updateBudget() {
   }
 
   const total = destinationTotal + hotelTotal;
-
   estimatedBudget.textContent = formatPrice(total);
-
   destinationPrice.textContent = formatPrice(destinationTotal);
-
   hotelPrice.textContent = formatPrice(hotelTotal);
-
   totalDays.textContent = nights + " nights";
-
   budgetDetails.hidden = false;
 
   if (nights > 0) {
@@ -232,7 +192,6 @@ function updateBudget() {
   }
 
   updateItinerary();
-
   updatePlaces();
 }
 
@@ -295,7 +254,6 @@ function updatePlaces() {
 
   if (!selectedDestination) {
     placesSection.hidden = true;
-
     return;
   }
 
@@ -315,21 +273,13 @@ function updatePlaces() {
 
   placeNames.forEach(function (place) {
     const item = document.createElement("div");
-
     item.className = "place-item";
-
     const icon = document.createElement("i");
-
     icon.className = "fa-solid fa-location-dot";
-
     const name = document.createElement("span");
-
     name.textContent = place;
-
     item.appendChild(icon);
-
     item.appendChild(name);
-
     placesList.appendChild(item);
   });
 }
@@ -340,7 +290,6 @@ function getActivities() {
   const checked = document.querySelectorAll('input[name="activities"]:checked');
 
   const activities = [];
-
   checked.forEach(function (item) {
     activities.push(item.value);
   });
@@ -357,9 +306,7 @@ function updateItinerary() {
 
   if (!selectedDestination) {
     itinerarySection.hidden = true;
-
     itineraryToggle.hidden = true;
-
     return;
   }
 
@@ -367,34 +314,26 @@ function updateItinerary() {
 
   if (nights <= 0) {
     itinerarySection.hidden = true;
-
     itineraryToggle.hidden = true;
-
     return;
   }
 
   itinerarySection.hidden = false;
 
   const activities = getActivities();
-
   const selectedActivities =
     activities.length > 0
       ? activities.join(", ")
       : "Explore the destination and enjoy free time";
 
   const totalTripDays = nights + 1;
-
   const daysToShow = Math.min(totalTripDays, 14);
 
   for (let i = 1; i <= daysToShow; i++) {
     const day = document.createElement("div");
-
     day.className = "itinerary-day";
-
     const heading = document.createElement("h4");
-
     heading.textContent = "Day " + i;
-
     const description = document.createElement("p");
 
     if (i === 1) {
@@ -416,29 +355,22 @@ function updateItinerary() {
     }
 
     day.appendChild(heading);
-
     day.appendChild(description);
 
     if (i > 3) {
       day.classList.add("itinerary-extra-day");
-
       day.hidden = true;
     }
-
     itineraryList.appendChild(day);
   }
 
   itineraryToggle.hidden = daysToShow <= 3;
-
   itineraryToggle.textContent = "Show all days";
 
   if (totalTripDays > 14) {
     const note = document.createElement("p");
-
     note.className = "itinerary-note";
-
     note.textContent = "Showing the first 14 days of your suggested itinerary.";
-
     itineraryList.appendChild(note);
   }
 }
@@ -469,9 +401,7 @@ destination.addEventListener("change", function () {
   });
 
   loadHotels(selectedDestination);
-
   updateBudget();
-
   message.textContent = "";
 });
 
@@ -483,9 +413,7 @@ hotel.addEventListener("change", function () {
   selectedHotel = hotels.find(function (item) {
     return Number(item.id) === id;
   });
-
   showHotel(selectedHotel);
-
   updateBudget();
 });
 
@@ -515,17 +443,11 @@ document.querySelectorAll('input[name="activities"]').forEach(function (item) {
 
 function setDates() {
   const today = new Date();
-
   const year = today.getFullYear();
-
   const month = String(today.getMonth() + 1).padStart(2, "0");
-
   const day = String(today.getDate()).padStart(2, "0");
-
   const currentDate = year + "-" + month + "-" + day;
-
   departureDate.min = currentDate;
-
   returnDate.min = currentDate;
 }
 
@@ -533,7 +455,6 @@ function setDates() {
 
 function showMessage(text, type) {
   message.textContent = text;
-
   message.className = type;
 }
 
@@ -541,11 +462,9 @@ function showMessage(text, type) {
 
 tripForm.addEventListener("submit", function (event) {
   event.preventDefault();
-
   message.textContent = "";
 
   // Check destination
-
   if (!selectedDestination) {
     showMessage("Please select a destination.", "error");
 
@@ -553,81 +472,55 @@ tripForm.addEventListener("submit", function (event) {
   }
 
   // Check travelers
-
   const totalTravelers = Number(travelers.value);
 
   if (!totalTravelers || totalTravelers < 1) {
     showMessage("Please enter a valid number of travelers.", "error");
-
     return;
   }
 
   // Check dates
-
   if (!departureDate.value || !returnDate.value) {
     showMessage("Please select your travel dates.", "error");
-
     return;
   }
 
   if (returnDate.value <= departureDate.value) {
     showMessage("Return date must be after departure date.", "error");
-
     return;
   }
 
   const nights = getNights();
-
   const destinationTotal = Number(selectedDestination.price) * totalTravelers;
-
   const hotelTotal = selectedHotel ? Number(selectedHotel.price) * nights : 0;
-
   const total = destinationTotal + hotelTotal;
 
   // Trip information
 
   const trip = {
     id: Date.now(),
-
     tripName: tripName.value.trim() || selectedDestination.name + " Trip",
-
     destinationId: selectedDestination.id,
-
     destination: selectedDestination.name,
-
     country: selectedDestination.country,
-
     image: selectedDestination.image,
-
     travelers: totalTravelers,
-
     departureDate: departureDate.value,
-
     returnDate: returnDate.value,
-
     nights: nights,
-
     hotel: selectedHotel ? selectedHotel : null,
-
     activities: getActivities(),
-
     notes: tripNotes.value,
-
     destinationCost: destinationTotal,
-
     hotelCost: hotelTotal,
-
     totalBudget: total,
-
     createdAt: new Date().toISOString(),
   };
 
   // Save trip permanently in plannedTrips
 
   let savedTrips = JSON.parse(localStorage.getItem("plannedTrips")) || [];
-
   savedTrips.push(trip);
-
   localStorage.setItem("plannedTrips", JSON.stringify(savedTrips));
 
   // Clear temporary selected trip
@@ -645,9 +538,7 @@ tripForm.addEventListener("submit", function (event) {
   // Reset selected data
 
   selectedDestination = null;
-
   selectedHotel = null;
-
   itineraryExpanded = false;
 
   // Reset travelers to 1
@@ -657,15 +548,10 @@ tripForm.addEventListener("submit", function (event) {
   // Reset hotel section
 
   hotel.innerHTML = '<option value="">Select Hotel</option>';
-
   hotel.disabled = false;
-
   hotelDetails.innerHTML = "";
-
   hotelDetails.classList.remove("show");
-
   hotelSection.hidden = true;
-
   hotelText.textContent = "Select a hotel for your stay.";
 
   // Reset dates
@@ -675,31 +561,22 @@ tripForm.addEventListener("submit", function (event) {
   // Reset budget
 
   estimatedBudget.textContent = formatPrice(0);
-
   budgetDescription.textContent = "Select your destination and dates.";
-
   destinationPrice.textContent = formatPrice(0);
-
   hotelPrice.textContent = formatPrice(0);
-
   totalDays.textContent = "0 nights";
-
   budgetDetails.hidden = true;
 
   // Reset itinerary
 
   itineraryList.innerHTML = "";
-
   itinerarySection.hidden = true;
-
   itineraryToggle.hidden = true;
-
   itineraryToggle.textContent = "Show all days";
 
   // Reset places
 
   placesList.innerHTML = "";
-
   placesSection.hidden = true;
 
   // Show success message
@@ -711,11 +588,8 @@ tripForm.addEventListener("submit", function (event) {
 
 function loadSelectedTrip() {
   const urlParams = new URLSearchParams(window.location.search);
-
   const urlId = Number(urlParams.get("destination"));
-
   let savedTrip = JSON.parse(localStorage.getItem("selectedTrip"));
-
   let place = null;
 
   // Destination from URL
@@ -742,11 +616,8 @@ function loadSelectedTrip() {
   // Select destination
   if (place) {
     destination.value = place.id;
-
     selectedDestination = place;
-
     loadHotels(place);
-
     updateBudget();
   }
 
@@ -762,9 +633,6 @@ function loadSelectedTrip() {
 // ================= START =================
 
 loadDestinations();
-
 setDates();
-
 loadSelectedTrip();
-
 updateBudget();

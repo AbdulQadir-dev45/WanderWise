@@ -272,15 +272,10 @@ function getDestinationById(id) {
 
 function showMessage(title, message) {
   destinationContainer.innerHTML = `
-
         <div class="no-match">
-
             <h3>${title}</h3>
-
             <p>${message}</p>
-
         </div>
-
     `;
 }
 
@@ -291,20 +286,15 @@ function updateMatches() {
   const travelers = Number(travelersInput.value);
 
   // Check empty inputs
-
   if (budgetInput.value.trim() === "" || travelersInput.value.trim() === "") {
     totalSummary.textContent =
       "Enter your budget and number of travelers to get started.";
-
     personSummary.textContent = "Your budget per person will appear here.";
-
     destinationContainer.innerHTML = "";
-
     return;
   }
 
   // Check valid inputs
-
   if (
     !Number.isFinite(budget) ||
     budget <= 0 ||
@@ -312,41 +302,28 @@ function updateMatches() {
     travelers <= 0
   ) {
     totalSummary.textContent = "Please enter a valid total budget.";
-
     personSummary.textContent =
       "Travelers must be a whole number greater than zero.";
-
     destinationContainer.innerHTML = "";
-
     return;
   }
 
   // Calculate per person budget
-
   const perPerson = budget / travelers;
 
   // Show budget summary
-
   totalSummary.innerHTML = `
-
         Total budget:
-
         <strong>PKR ${formatPrice(budget)}</strong>
-
         for <strong>${travelers}</strong> travelers
-
     `;
 
   personSummary.innerHTML = `
-
         Budget per person:
-
         <strong>PKR ${formatPrice(perPerson)}</strong>
-
     `;
 
   // Show matching destinations
-
   showDestinations(budget, travelers);
 }
 
@@ -354,101 +331,65 @@ function updateMatches() {
 
 function showDestinations(budget, travelers) {
   let cards = "";
-
   let found = 0;
 
   for (let i = 0; i < destinations.length; i++) {
     const place = destinations[i];
-
     const totalPrice = Number(place.price) * travelers;
-
     const leftover = budget - totalPrice;
 
     // Check destination according to budget
 
     if (totalPrice <= budget) {
       found++;
-
       cards += `
-
                 <article class="destination-card">
-
                     <div class="destination-image">
-
-                        <img
-                            src="${place.image}"
-                            alt="${place.name}"
-                            loading="lazy"
-                        >
-
+                        <img src="${place.image}" alt="${place.name}" loading="lazy">
                         <span class="category">
                             ${place.category}
                         </span>
-
                     </div>
 
-
                     <div class="destination-content">
-
                         <h2>${place.name}</h2>
-
                         <p>
                             ${place.country} · ${place.description}
                         </p>
 
-
                         <div class="price-box">
-
                             <div class="price-row">
-
                                 <span>Per Person:</span>
-
                                 <strong>
                                     PKR ${formatPrice(place.price)}
                                 </strong>
-
                             </div>
 
-
                             <div class="price-row">
-
                                 <span>For ${travelers} Travelers:</span>
-
                                 <strong>
                                     PKR ${formatPrice(totalPrice)}
                                 </strong>
-
                             </div>
 
-
                             <div class="price-row">
-
                                 <span>Budget Left:</span>
-
                                 <strong>
                                     PKR ${formatPrice(leftover)}
                                 </strong>
-
                             </div>
-
                         </div>
 
-
                         <div class="card-buttons">
-
                             <button
                                 type="button"
                                 class="details-btn"
                                 data-action="details"
                                 data-id="${place.id}"
                             >
-
                                 <i class="fa-regular fa-eye"></i>
-
                                 View Details
-
                             </button>
-
 
                             <button
                                 type="button"
@@ -456,19 +397,12 @@ function showDestinations(budget, travelers) {
                                 data-action="plan"
                                 data-id="${place.id}"
                             >
-
                                 <i class="fa-solid fa-route"></i>
-
                                 Plan Trip
-
                             </button>
-
                         </div>
-
                     </div>
-
                 </article>
-
             `;
     }
   }
@@ -477,28 +411,19 @@ function showDestinations(budget, travelers) {
 
   if (found > 0) {
     destinationContainer.innerHTML = `
-
             <div class="match-heading">
-
                 <h2>${found} Destinations Found</h2>
-
                 <p>
                     These destinations match your total travel budget.
                 </p>
-
                 <small>
                     Prices are estimates based on the destination data available on this demo website.
                 </small>
-
             </div>
-
 
             <div class="destination-grid">
-
                 ${cards}
-
             </div>
-
         `;
   } else {
     showMessage(
@@ -512,11 +437,8 @@ function showDestinations(budget, travelers) {
 
 function showDestinationDetails(place, travelers, budget) {
   closeDestinationDetails();
-
   const info = destinationInfo[place.id] || defaultInfo;
-
   const totalPrice = Number(place.price) * travelers;
-
   const leftover = budget - totalPrice;
 
   // Create highlights
@@ -524,15 +446,10 @@ function showDestinationDetails(place, travelers, budget) {
   const highlights = info.highlights
     .map(function (item) {
       return `
-
             <li>
-
                 <i class="fa-solid fa-check"></i>
-
                 ${item}
-
             </li>
-
         `;
     })
     .join("");
@@ -540,198 +457,130 @@ function showDestinationDetails(place, travelers, budget) {
   // Create modal
 
   const modal = document.createElement("div");
-
   modal.className = "details-modal";
-
   modal.setAttribute("role", "presentation");
 
   modal.innerHTML = `
-
         <div
             class="details-modal-content"
             role="dialog"
             aria-modal="true"
             aria-labelledby="detailsTitle"
         >
-
             <button
                 type="button"
                 class="close-details"
                 aria-label="Close destination details"
             >
-
                 <i class="fa-solid fa-xmark"></i>
-
             </button>
-
 
             <!-- Destination Image -->
 
             <div class="details-image">
-
-                <img
-                    src="${place.image}"
-                    alt="${place.name}"
-                >
-
+                <img src="${place.image}" alt="${place.name}">
 
                 <div class="details-image-overlay">
-
                     <div class="details-badges">
-
                         <span class="hero-badge">
                             ${place.category}
                         </span>
 
-
                         <span class="hero-badge">
-
                             <i class="fa-solid fa-location-dot"></i>
-
                             <span>${place.country}</span>
-
                         </span>
 
-
                         <span class="hero-badge">
-
                             <i class="fa-solid fa-star"></i>
-
                             <span>
                                 ${Number(place.rating || 4.8).toFixed(1)}
                             </span>
-
                             <span>Guest rating</span>
-
                         </span>
-
                     </div>
-
 
                     <h2 id="detailsTitle">
                         ${place.name}
                     </h2>
-
                 </div>
-
             </div>
 
-
             <div class="details-info">
-
 
                 <!-- About Destination -->
 
                 <section class="popup-detail-section">
-
                     <h3>About The Destination</h3>
-
                     <p>
-                        ${place.description}
+                      ${place.description}
                     </p>
-
                 </section>
 
 
                 <!-- Highlights -->
 
                 <section class="popup-detail-section">
-
                     <h3>Key Highlights &amp; Experiences</h3>
-
                     <ul class="popup-highlights-list">
-
                         ${highlights}
-
                     </ul>
-
                 </section>
 
 
                 <!-- Recommended Season -->
 
                 <section class="popup-season">
-
                     <i class="fa-regular fa-calendar-days"></i>
-
                     <div>
-
                         <strong>Recommended Season</strong>
-
                         <span>${info.season}</span>
-
                     </div>
-
                 </section>
-
 
                 <!-- Estimated Trip Cost -->
 
                 <section class="popup-cost">
-
                     <h3>Estimated Trip Cost</h3>
 
-
                     <div class="popup-cost-row">
-
                         <span>Per Person</span>
-
                         <strong>
                             PKR ${formatPrice(place.price)}
                         </strong>
-
                     </div>
 
-
                     <div class="popup-cost-row">
-
                         <span>${travelers} Travelers</span>
-
                         <strong>
                             PKR ${formatPrice(totalPrice)}
                         </strong>
-
                     </div>
 
-
                     <div class="popup-cost-row">
-
                         <span>Budget Remaining</span>
-
                         <strong>
                             PKR ${formatPrice(leftover)}
                         </strong>
 
                     </div>
 
-
                     <p>
                         Estimated prices are for planning purposes and may vary.
                     </p>
-
                 </section>
-
 
                 <!-- Back Button -->
 
-                <button
-                    type="button"
-                    class="close-details-btn"
-                >
-
+                <button type="button" class="close-details-btn">
                     Back to Budget Calculator
-
                 </button>
 
-
             </div>
-
         </div>
-
     `;
 
   document.body.appendChild(modal);
-
   document.body.classList.add("modal-open");
 
   // Close modal on button click or outside click
@@ -747,9 +596,7 @@ function showDestinationDetails(place, travelers, budget) {
   });
 
   // Close modal with Escape key
-
   document.addEventListener("keydown", handleModalEscape);
-
   modal.querySelector(".close-details").focus();
 }
 
@@ -757,13 +604,11 @@ function showDestinationDetails(place, travelers, budget) {
 
 function closeDestinationDetails() {
   const existingModal = document.querySelector(".details-modal");
-
   if (existingModal) {
     existingModal.remove();
   }
 
   document.body.classList.remove("modal-open");
-
   document.removeEventListener("keydown", handleModalEscape);
 }
 
@@ -779,25 +624,20 @@ function handleModalEscape(event) {
 
 destinationContainer.addEventListener("click", function (event) {
   const button = event.target.closest("button[data-action]");
-
   if (!button) {
     return;
   }
 
   const place = getDestinationById(button.dataset.id);
-
   if (!place) {
     return;
   }
 
   const budget = Number(budgetInput.value);
-
   const travelers = Number(travelersInput.value);
-
   const totalPrice = Number(place.price) * travelers;
 
   // View Details Button
-
   if (button.dataset.action === "details") {
     showDestinationDetails(place, travelers, budget);
   }
@@ -807,32 +647,22 @@ destinationContainer.addEventListener("click", function (event) {
   if (button.dataset.action === "plan") {
     const selectedTrip = {
       id: place.id,
-
       name: place.name,
-
+      description: place.description,
       country: place.country,
-
       category: place.category,
-
       image: place.image,
-
       travelers: travelers,
-
       pricePerPerson: Number(place.price),
-
       totalPrice: totalPrice,
-
       budget: budget,
-
       budgetRemaining: budget - totalPrice,
     };
 
     // Save selected destination
-
     localStorage.setItem("selectedTrip", JSON.stringify(selectedTrip));
 
     // Open Trip Planner
-
     window.location.href = `trip-planner.html?destination=${encodeURIComponent(place.id)}`;
   }
 });
@@ -840,13 +670,10 @@ destinationContainer.addEventListener("click", function (event) {
 // ================= BUTTON AND INPUT EVENTS =================
 
 // Update button
-
 updateButton.addEventListener("click", updateMatches);
 
 // Automatically update while typing
-
 budgetInput.addEventListener("input", updateMatches);
-
 travelersInput.addEventListener("input", updateMatches);
 
 // ================= INITIAL PAGE STATE =================
