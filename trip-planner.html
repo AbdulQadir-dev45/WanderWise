@@ -1,103 +1,72 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#047857" />
-    <meta
-      name="description"
-      content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays."
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#047857">
+    <meta name="description" content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays.">
 
     <title>WanderWise - Explore the World</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/trip-planner.css" />
-  </head>
-  <body>
-    <div class="main-box">
-      <!-- HEADER -->
-      <header id="header">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/trip-planner.css">
+</head>
+<body>
+
+<div class="main-box">
+
+    <!-- HEADER -->
+    <header id="header">
         <div class="container navbar">
-          <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
+            <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
 
-          <nav class="nav-links">
-            <a href="index.html" class="nav-item">Home</a>
-            <a href="destinations.html" class="nav-item">Destinations</a>
-            <a href="hotels.html" class="nav-item">Hotels</a>
-            <a
-              href="trip-planner.html"
-              class="nav-item active"
-              aria-current="page"
-              >Trip Planner</a
-            >
-            <a href="budget-calculator.html" class="nav-item">Budget</a>
-            <a href="my-trips.html" class="nav-item">My Trips</a>
-            <a href="favorites.html" class="nav-item favorites">
-              <i class="fa-solid fa-heart"></i>Favorites
-              <span class="count">0</span>
-            </a>
-          </nav>
+            <nav class="nav-links"> 
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="destinations.html" class="nav-item">Destinations</a>
+                <a href="hotels.html" class="nav-item">Hotels</a>
+                <a href="trip-planner.html" class="nav-item active">Trip Planner</a>
+                <a href="budget-calculator.html" class="nav-item">Budget</a>
+                <a href="my-trips.html" class="nav-item">My Trips</a>
+                <a href="favorites.html" class="nav-item favorites">
+                    <i class="fa-solid fa-heart"></i>Favorites
+                    <span class="count">0</span>
+                </a>
+            </nav>
 
-          <div class="nav-buttons">
-            <a href="login.html" class="login-btn">Login</a>
-            <a href="signup.html" class="start-btn">Get Started</a>
-          </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="start-btn">Get Started</a>
+            </div>
 
-          <div class="mobile-buttons">
-            <a href="favorites.html" class="icon-btn" aria-label="Favorites"
-              ><i class="fa-solid fa-heart"></i><span class="count">0</span></a
-            >
-            <button
-              class="icon-btn"
-              id="menu-btn"
-              aria-label="Toggle navigation"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-bars"></i>
-            </button>
-          </div>
+            <div class="mobile-buttons">
+                <a href="favorites.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="count">0</span></a>
+                <button class="icon-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
 
         <div class="mobile-menu" id="mobile-menu">
-          <a href="index.html"
-            ><i class="fa-solid fa-house"></i> Home</a
-          >
-          <a href="destinations.html"
-            ><i class="fa-solid fa-location-dot"></i> Destinations</a
-          >
-          <a href="trip-planner.html" class="active"
-            ><i class="fa-solid fa-route"></i> Trip Planner</a
-          >
-          <a href="budget-calculator.html"
-            ><i class="fa-solid fa-wallet"></i> Budget</a
-          >
-          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
-          <a href="my-trips.html"><i class="fa-solid fa-suitcase"></i> My Trips</a>
-          <a href="favorites.html"
-            ><i class="fa-solid fa-heart"></i> Favorites (0)</a
-          >
-          <div class="mobile-menu-auth">
+            <a href="index.html" ><i class="fa-solid fa-house"></i> Home</a>
+            <a href="destinations.html"><i class="fa-solid fa-location-dot"></i> Destinations</a>
+            <a href="trip-planner.html" class="active"><i class="fa-solid fa-route"></i> Trip Planner</a>
+            <a href="budget-calculator.html"><i class="fa-solid fa-wallet"></i> Budget</a>
+            <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
+            <a href="my-trips.html" ><i class="fa-solid fa-suitcase"></i> My Trips</a>
+            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Favorites (0)</a>
+            <div class="mobile-menu-auth">
                 <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                 <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
-          </div>
+            </div>
         </div>
-      </header>
+    </header>
 
       <!-- MAIN CONTENT -->
       <main id="app">
@@ -385,6 +354,43 @@
                 </div>
 
                 <p id="message"></p>
+
+                <!-- ================= HTML TEMPLATES ================= -->
+
+                <!-- Destination Option Template -->
+
+                <template id="destinationOptionTemplate">
+                  <option></option>
+                </template>
+
+                <!-- Hotel Option Template -->
+
+                <template id="hotelOptionTemplate">
+                  <option></option>
+                </template>
+
+                <!-- Hotel Details Template -->
+
+                <template id="hotelDetailsTemplate">
+                  <div>
+                    <img class="hotel-preview-image" src="" alt="" />
+                    <div>
+                      <h4></h4>
+                      <p></p>
+                      <strong></strong>
+                    </div>
+                  </div>
+                </template>
+
+                <!-- Place Item Template -->
+
+                <template id="placeItemTemplate">
+                  <div class="place-item">
+                    <i class="fa-solid fa-location-dot"></i>
+                    <span></span>
+                  </div>
+                </template>
+                
               </div>
             </form>
           </div>

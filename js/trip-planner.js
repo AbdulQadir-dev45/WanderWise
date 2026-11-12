@@ -33,14 +33,21 @@ const message = document.getElementById("message");
 
 // ================= FEATURE ELEMENTS =================
 
-const itinerarySection = document.getElementById("itinerarySection");
-const itineraryList = document.getElementById("itineraryList");
-const itineraryToggle = document.getElementById("itineraryToggle");
-
 const placesSection = document.getElementById("placesSection");
 const placesList = document.getElementById("placesList");
 
-let itineraryExpanded = false;
+// ================= HTML TEMPLATES =================
+
+const destinationOptionTemplate = document.getElementById(
+  "destinationOptionTemplate",
+);
+
+const hotelOptionTemplate = document.getElementById("hotelOptionTemplate");
+
+const hotelDetailsTemplate = document.getElementById("hotelDetailsTemplate");
+
+const placeItemTemplate = document.getElementById("placeItemTemplate");
+
 let selectedDestination = null;
 let selectedHotel = null;
 
@@ -54,9 +61,12 @@ function formatPrice(price) {
 
 function loadDestinations() {
   destinations.forEach(function (place) {
-    const option = document.createElement("option");
+    const option =
+      destinationOptionTemplate.content.firstElementChild.cloneNode(true);
+
     option.value = place.id;
     option.textContent = place.name + ", " + place.country;
+
     destination.appendChild(option);
   });
 }
@@ -72,15 +82,24 @@ function getHotels(place) {
 // ================= LOAD HOTELS =================
 
 function loadHotels(place) {
-  hotel.innerHTML = '<option value="">Select Hotel</option>';
-  hotelDetails.innerHTML = "";
+  const defaultOption =
+    hotelOptionTemplate.content.firstElementChild.cloneNode(true);
+
+  defaultOption.value = "";
+  defaultOption.textContent = "Select Hotel";
+
+  hotel.replaceChildren(defaultOption);
+
+  hotelDetails.replaceChildren();
   hotelDetails.classList.remove("show");
+
   selectedHotel = null;
   hotel.disabled = false;
 
   if (!place) {
     hotelSection.hidden = true;
     updateBudget();
+
     return;
   }
 
@@ -91,13 +110,18 @@ function loadHotels(place) {
   if (availableHotels.length === 0) {
     hotel.disabled = true;
     hotelText.textContent = "No hotels available for this destination.";
+
     updateBudget();
+
     return;
   }
 
   hotelText.textContent = "Select a hotel for your stay.";
+
   availableHotels.forEach(function (item) {
-    const option = document.createElement("option");
+    const option =
+      hotelOptionTemplate.content.firstElementChild.cloneNode(true);
+
     option.value = item.id;
 
     option.textContent =
@@ -112,20 +136,30 @@ function loadHotels(place) {
 // ================= SHOW HOTEL DETAILS =================
 
 function showHotel(item) {
+  hotelDetails.replaceChildren();
+
   if (!item) {
-    hotelDetails.innerHTML = "";
     hotelDetails.classList.remove("show");
+
     return;
   }
 
-  hotelDetails.innerHTML = `
-        <img src="${item.image}" alt="${item.name}">
-        <div>
-            <h4>${item.name}</h4>
-            <p>${item.location}</p>
-            <strong>${formatPrice(item.price)} / night</strong>
-        </div>
-    `;
+  const hotelContent = hotelDetailsTemplate.content.cloneNode(true);
+
+  const image = hotelContent.querySelector("img");
+  const name = hotelContent.querySelector("h4");
+  const location = hotelContent.querySelector("p");
+  const price = hotelContent.querySelector("strong");
+
+  image.src = item.image;
+  image.alt = item.name;
+
+  name.textContent = item.name;
+  location.textContent = item.location;
+
+  price.textContent = formatPrice(item.price) + " / night";
+
+  hotelDetails.appendChild(hotelContent);
 
   hotelDetails.classList.add("show");
 }
@@ -136,9 +170,12 @@ function getNights() {
   if (!departureDate.value || !returnDate.value) {
     return 0;
   }
+
   const start = new Date(departureDate.value);
   const end = new Date(returnDate.value);
+
   const difference = end - start;
+
   return Math.round(difference / (1000 * 60 * 60 * 24));
 }
 
@@ -150,11 +187,12 @@ function updateBudget() {
 
   if (!selectedDestination) {
     estimatedBudget.textContent = formatPrice(0);
+
     budgetDescription.textContent = "Select your destination and dates.";
+
     budgetDetails.hidden = true;
-    itinerarySection.hidden = true;
-    itineraryToggle.hidden = true;
     placesSection.hidden = true;
+
     return;
   }
 
@@ -167,10 +205,14 @@ function updateBudget() {
   }
 
   const total = destinationTotal + hotelTotal;
+
   estimatedBudget.textContent = formatPrice(total);
+
   destinationPrice.textContent = formatPrice(destinationTotal);
   hotelPrice.textContent = formatPrice(hotelTotal);
+
   totalDays.textContent = nights + " nights";
+
   budgetDetails.hidden = false;
 
   if (nights > 0) {
@@ -191,13 +233,28 @@ function updateBudget() {
       ".";
   }
 
-  updateItinerary();
   updatePlaces();
 }
 
 // ================= DESTINATION PLACES DATA =================
 
 const destinationPlaces = {
+  Makkah: [
+    "Masjid al-Haram",
+    "Kaaba and Mataf",
+    "Jabal al-Noor",
+    "Makkah Clock Tower",
+    "Jabal Thawr",
+  ],
+
+  Paris: [
+    "Eiffel Tower",
+    "Louvre Museum",
+    "Arc de Triomphe",
+    "Seine River Cruise",
+    "Notre-Dame Cathedral",
+  ],
+
   "Hunza Valley": [
     "Attabad Lake",
     "Baltit Fort",
@@ -245,15 +302,152 @@ const destinationPlaces = {
     "Hulhumale Beach",
     "National Museum",
   ],
+
+  "Swat Valley": [
+    "Malam Jabba",
+    "Kalam Valley",
+    "Mahodand Lake",
+    "Swat River",
+    "Fizagat Park",
+  ],
+
+  Naran: [
+    "Saif-ul-Malook Lake",
+    "Lulusar Lake",
+    "Babusar Top",
+    "Kunhar River",
+    "Lalazar Meadows",
+  ],
+
+  Murree: [
+    "Mall Road",
+    "Patriata Chairlift",
+    "Pindi Point",
+    "Kashmir Point",
+    "Bhurban",
+  ],
+
+  "Fairy Meadows": [
+    "Fairy Meadows",
+    "Nanga Parbat Viewpoint",
+    "Beyal Camp",
+    "Raikot Bridge",
+    "Mountain Viewpoints",
+  ],
+
+  London: [
+    "Big Ben",
+    "Tower Bridge",
+    "Buckingham Palace",
+    "London Eye",
+    "British Museum",
+  ],
+
+  "New York": [
+    "Statue of Liberty",
+    "Times Square",
+    "Central Park",
+    "Empire State Building",
+    "Brooklyn Bridge",
+  ],
+
+  Tokyo: [
+    "Tokyo Skytree",
+    "Shibuya Crossing",
+    "Senso-ji Temple",
+    "Mount Fuji Views",
+    "Tokyo Disneyland",
+  ],
+
+  Santorini: [
+    "Blue Dome Churches",
+    "Oia Sunset Views",
+    "Red Beach",
+    "Fira Village",
+    "Akrotiri Archaeological Site",
+  ],
+
+  Phuket: [
+    "Patong Beach",
+    "Phi Phi Islands",
+    "Big Buddha",
+    "Phang Nga Bay",
+    "Kata Beach",
+  ],
+
+  Switzerland: [
+    "Swiss Alps",
+    "Lake Geneva",
+    "Jungfraujoch",
+    "Interlaken",
+    "Lucerne",
+  ],
+
+  Cappadocia: [
+    "Hot Air Balloon Rides",
+    "Fairy Chimneys",
+    "Goreme Open Air Museum",
+    "Underground Cities",
+    "Love Valley",
+  ],
+
+  "Abu Dhabi": [
+    "Sheikh Zayed Grand Mosque",
+    "Louvre Abu Dhabi",
+    "Qasr Al Watan",
+    "Corniche Beach",
+    "Ferrari World",
+  ],
+
+  Baku: [
+    "Flame Towers",
+    "Icherisheher Old City",
+    "Baku Boulevard",
+    "Maiden Tower",
+    "Heydar Aliyev Center",
+  ],
+
+  Rome: [
+    "Colosseum",
+    "Trevi Fountain",
+    "Roman Forum",
+    "Vatican City",
+    "Pantheon",
+  ],
+
+  Cairo: [
+    "Great Pyramids of Giza",
+    "Sphinx",
+    "Egyptian Museum",
+    "Khan el-Khalili Bazaar",
+    "Citadel of Saladin",
+  ],
+
+  Queenstown: [
+    "Lake Wakatipu",
+    "Milford Sound",
+    "Skyline Gondola",
+    "Remarkables Mountains",
+    "Queenstown Gardens",
+  ],
+
+  Langkawi: [
+    "Langkawi Sky Bridge",
+    "Eagle Square",
+    "Pantai Cenang Beach",
+    "Kilim Geoforest Park",
+    "Seven Wells Waterfall",
+  ],
 };
 
 // ================= SHOW PLACES =================
 
 function updatePlaces() {
-  placesList.innerHTML = "";
+  placesList.replaceChildren();
 
   if (!selectedDestination) {
     placesSection.hidden = true;
+
     return;
   }
 
@@ -272,14 +466,12 @@ function updatePlaces() {
   }
 
   placeNames.forEach(function (place) {
-    const item = document.createElement("div");
-    item.className = "place-item";
-    const icon = document.createElement("i");
-    icon.className = "fa-solid fa-location-dot";
-    const name = document.createElement("span");
+    const item = placeItemTemplate.content.firstElementChild.cloneNode(true);
+
+    const name = item.querySelector("span");
+
     name.textContent = place;
-    item.appendChild(icon);
-    item.appendChild(name);
+
     placesList.appendChild(item);
   });
 }
@@ -290,106 +482,13 @@ function getActivities() {
   const checked = document.querySelectorAll('input[name="activities"]:checked');
 
   const activities = [];
+
   checked.forEach(function (item) {
     activities.push(item.value);
   });
 
   return activities;
 }
-
-// ================= DAY WISE ITINERARY =================
-
-function updateItinerary() {
-  itineraryList.innerHTML = "";
-
-  itineraryExpanded = false;
-
-  if (!selectedDestination) {
-    itinerarySection.hidden = true;
-    itineraryToggle.hidden = true;
-    return;
-  }
-
-  const nights = getNights();
-
-  if (nights <= 0) {
-    itinerarySection.hidden = true;
-    itineraryToggle.hidden = true;
-    return;
-  }
-
-  itinerarySection.hidden = false;
-
-  const activities = getActivities();
-  const selectedActivities =
-    activities.length > 0
-      ? activities.join(", ")
-      : "Explore the destination and enjoy free time";
-
-  const totalTripDays = nights + 1;
-  const daysToShow = Math.min(totalTripDays, 14);
-
-  for (let i = 1; i <= daysToShow; i++) {
-    const day = document.createElement("div");
-    day.className = "itinerary-day";
-    const heading = document.createElement("h4");
-    heading.textContent = "Day " + i;
-    const description = document.createElement("p");
-
-    if (i === 1) {
-      description.textContent =
-        "Arrival at " +
-        selectedDestination.name +
-        ". Check in to your hotel, relax and explore nearby areas.";
-    } else if (i === totalTripDays) {
-      description.textContent =
-        "Enjoy your final morning, complete checkout " +
-        "and prepare for your return journey.";
-    } else {
-      description.textContent =
-        "Explore " +
-        selectedDestination.name +
-        ". Suggested activities: " +
-        selectedActivities +
-        ".";
-    }
-
-    day.appendChild(heading);
-    day.appendChild(description);
-
-    if (i > 3) {
-      day.classList.add("itinerary-extra-day");
-      day.hidden = true;
-    }
-    itineraryList.appendChild(day);
-  }
-
-  itineraryToggle.hidden = daysToShow <= 3;
-  itineraryToggle.textContent = "Show all days";
-
-  if (totalTripDays > 14) {
-    const note = document.createElement("p");
-    note.className = "itinerary-note";
-    note.textContent = "Showing the first 14 days of your suggested itinerary.";
-    itineraryList.appendChild(note);
-  }
-}
-
-// ================= ITINERARY TOGGLE =================
-
-itineraryToggle.addEventListener("click", function () {
-  itineraryExpanded = !itineraryExpanded;
-
-  const extraDays = itineraryList.querySelectorAll(".itinerary-extra-day");
-
-  extraDays.forEach(function (day) {
-    day.hidden = !itineraryExpanded;
-  });
-
-  itineraryToggle.textContent = itineraryExpanded
-    ? "Show less"
-    : "Show all days";
-});
 
 // ================= DESTINATION CHANGE =================
 
@@ -401,7 +500,9 @@ destination.addEventListener("change", function () {
   });
 
   loadHotels(selectedDestination);
+
   updateBudget();
+
   message.textContent = "";
 });
 
@@ -413,7 +514,9 @@ hotel.addEventListener("change", function () {
   selectedHotel = hotels.find(function (item) {
     return Number(item.id) === id;
   });
+
   showHotel(selectedHotel);
+
   updateBudget();
 });
 
@@ -433,21 +536,21 @@ departureDate.addEventListener("change", function () {
 
 returnDate.addEventListener("change", updateBudget);
 
-// ================= ACTIVITY CHANGE =================
-
-document.querySelectorAll('input[name="activities"]').forEach(function (item) {
-  item.addEventListener("change", updateItinerary);
-});
-
 // ================= MINIMUM DATE =================
 
 function setDates() {
   const today = new Date();
+
   const year = today.getFullYear();
+
   const month = String(today.getMonth() + 1).padStart(2, "0");
+
   const day = String(today.getDate()).padStart(2, "0");
+
   const currentDate = year + "-" + month + "-" + day;
+
   departureDate.min = currentDate;
+
   returnDate.min = currentDate;
 }
 
@@ -455,6 +558,7 @@ function setDates() {
 
 function showMessage(text, type) {
   message.textContent = text;
+
   message.className = type;
 }
 
@@ -462,9 +566,11 @@ function showMessage(text, type) {
 
 tripForm.addEventListener("submit", function (event) {
   event.preventDefault();
+
   message.textContent = "";
 
   // Check destination
+
   if (!selectedDestination) {
     showMessage("Please select a destination.", "error");
 
@@ -472,56 +578,202 @@ tripForm.addEventListener("submit", function (event) {
   }
 
   // Check travelers
+
   const totalTravelers = Number(travelers.value);
 
   if (!totalTravelers || totalTravelers < 1) {
     showMessage("Please enter a valid number of travelers.", "error");
+
     return;
   }
 
   // Check dates
+
   if (!departureDate.value || !returnDate.value) {
     showMessage("Please select your travel dates.", "error");
+
     return;
   }
 
   if (returnDate.value <= departureDate.value) {
     showMessage("Return date must be after departure date.", "error");
+
     return;
   }
 
   const nights = getNights();
+
   const destinationTotal = Number(selectedDestination.price) * totalTravelers;
+
   const hotelTotal = selectedHotel ? Number(selectedHotel.price) * nights : 0;
+
   const total = destinationTotal + hotelTotal;
 
   // Trip information
 
   const trip = {
     id: Date.now(),
+
     tripName: tripName.value.trim() || selectedDestination.name + " Trip",
+
     destinationId: selectedDestination.id,
+
     destination: selectedDestination.name,
+
     country: selectedDestination.country,
+
     image: selectedDestination.image,
+
     travelers: totalTravelers,
+
     departureDate: departureDate.value,
+
     returnDate: returnDate.value,
+
     nights: nights,
+
     hotel: selectedHotel ? selectedHotel : null,
+
     activities: getActivities(),
+
     notes: tripNotes.value,
+
     destinationCost: destinationTotal,
+
     hotelCost: hotelTotal,
+
     totalBudget: total,
+
     createdAt: new Date().toISOString(),
   };
 
-  // Save trip permanently in plannedTrips
+  // ========================================
+  // SAVE TRIP IN PLANNED TRIPS
+  // ========================================
 
-  let savedTrips = JSON.parse(localStorage.getItem("plannedTrips")) || [];
+  let savedTrips = [];
+
+  try {
+    savedTrips = JSON.parse(localStorage.getItem("plannedTrips")) || [];
+  } catch (error) {
+    savedTrips = [];
+  }
+
   savedTrips.push(trip);
+
   localStorage.setItem("plannedTrips", JSON.stringify(savedTrips));
+
+  // ========================================
+  // SAVE TRIP FOR MY TRIPS PAGE
+  // ========================================
+
+  let myTrips = [];
+
+  try {
+    myTrips = JSON.parse(localStorage.getItem("wanderwiseTrips")) || [];
+  } catch (error) {
+    myTrips = [];
+  }
+
+  const myTrip = {
+    id: trip.id.toString(),
+
+    title: trip.tripName,
+
+    destination: trip.destination + ", " + trip.country,
+
+    startDate: trip.departureDate,
+
+    endDate: trip.returnDate,
+
+    travelers: trip.travelers,
+
+    budget: trip.totalBudget,
+
+    description:
+      "Country: " +
+      trip.country +
+      " | Hotel: " +
+      (trip.hotel ? trip.hotel.name : "Not selected") +
+      " | Nights: " +
+      trip.nights +
+      " | Activities: " +
+      (trip.activities.length > 0
+        ? trip.activities.join(", ")
+        : "No activities selected") +
+      " | Notes: " +
+      (trip.notes || "No additional notes"),
+
+    itinerary: trip.activities,
+
+    destinationId: trip.destinationId,
+
+    country: trip.country,
+
+    image: trip.image,
+
+    nights: trip.nights,
+
+    hotel: trip.hotel,
+
+    activities: trip.activities,
+
+    notes: trip.notes,
+
+    destinationCost: trip.destinationCost,
+
+    hotelCost: trip.hotelCost,
+
+    totalBudget: trip.totalBudget,
+
+    createdAt: trip.createdAt,
+
+    savedAt: new Date().toISOString(),
+  };
+
+  myTrips.push(myTrip);
+
+  localStorage.setItem("wanderwiseTrips", JSON.stringify(myTrips));
+
+  // ========================================
+  // SAVE HOTEL IN MY TRIPS HOTEL RESERVATIONS
+  // ========================================
+
+  if (trip.hotel) {
+    let savedHotels = [];
+
+    try {
+      savedHotels = JSON.parse(localStorage.getItem("wanderwiseHotels")) || [];
+    } catch (error) {
+      savedHotels = [];
+    }
+
+    const hotelBooking = {
+      id: trip.id.toString(),
+
+      hotelName: trip.hotel.name,
+
+      checkIn: trip.departureDate,
+
+      checkOut: trip.returnDate,
+
+      total: trip.hotelCost,
+
+      destination: trip.destination,
+
+      travelers: trip.travelers,
+
+      nights: trip.nights,
+
+      image: trip.hotel.image,
+
+      savedAt: new Date().toISOString(),
+    };
+
+    savedHotels.push(hotelBooking);
+
+    localStorage.setItem("wanderwiseHotels", JSON.stringify(savedHotels));
+  }
 
   // Clear temporary selected trip
 
@@ -538,8 +790,8 @@ tripForm.addEventListener("submit", function (event) {
   // Reset selected data
 
   selectedDestination = null;
+
   selectedHotel = null;
-  itineraryExpanded = false;
 
   // Reset travelers to 1
 
@@ -547,11 +799,22 @@ tripForm.addEventListener("submit", function (event) {
 
   // Reset hotel section
 
-  hotel.innerHTML = '<option value="">Select Hotel</option>';
+  const defaultOption =
+    hotelOptionTemplate.content.firstElementChild.cloneNode(true);
+
+  defaultOption.value = "";
+  defaultOption.textContent = "Select Hotel";
+
+  hotel.replaceChildren(defaultOption);
+
   hotel.disabled = false;
-  hotelDetails.innerHTML = "";
+
+  hotelDetails.replaceChildren();
+
   hotelDetails.classList.remove("show");
+
   hotelSection.hidden = true;
+
   hotelText.textContent = "Select a hotel for your stay.";
 
   // Reset dates
@@ -561,22 +824,21 @@ tripForm.addEventListener("submit", function (event) {
   // Reset budget
 
   estimatedBudget.textContent = formatPrice(0);
+
   budgetDescription.textContent = "Select your destination and dates.";
+
   destinationPrice.textContent = formatPrice(0);
+
   hotelPrice.textContent = formatPrice(0);
+
   totalDays.textContent = "0 nights";
+
   budgetDetails.hidden = true;
-
-  // Reset itinerary
-
-  itineraryList.innerHTML = "";
-  itinerarySection.hidden = true;
-  itineraryToggle.hidden = true;
-  itineraryToggle.textContent = "Show all days";
 
   // Reset places
 
-  placesList.innerHTML = "";
+  placesList.replaceChildren();
+
   placesSection.hidden = true;
 
   // Show success message
@@ -588,11 +850,15 @@ tripForm.addEventListener("submit", function (event) {
 
 function loadSelectedTrip() {
   const urlParams = new URLSearchParams(window.location.search);
+
   const urlId = Number(urlParams.get("destination"));
+
   let savedTrip = JSON.parse(localStorage.getItem("selectedTrip"));
+
   let place = null;
 
   // Destination from URL
+
   if (urlId) {
     place = destinations.find(function (item) {
       return Number(item.id) === urlId;
@@ -600,6 +866,7 @@ function loadSelectedTrip() {
   }
 
   // Destination from Budget Calculator
+
   if (!place && savedTrip) {
     const savedDestinationId = savedTrip.destinationId || savedTrip.id;
 
@@ -609,22 +876,29 @@ function loadSelectedTrip() {
   }
 
   // Load travelers
+
   if (savedTrip && savedTrip.travelers) {
     travelers.value = savedTrip.travelers;
   }
 
   // Select destination
+
   if (place) {
     destination.value = place.id;
+
     selectedDestination = place;
+
     loadHotels(place);
+
     updateBudget();
   }
 
   // Remove temporary data after loading it once
+
   localStorage.removeItem("selectedTrip");
 
   // Remove destination from URL after loading it once
+
   if (urlId) {
     window.history.replaceState({}, document.title, window.location.pathname);
   }
@@ -633,6 +907,9 @@ function loadSelectedTrip() {
 // ================= START =================
 
 loadDestinations();
+
 setDates();
+
 loadSelectedTrip();
+
 updateBudget();
