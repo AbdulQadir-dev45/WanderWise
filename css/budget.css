@@ -203,7 +203,7 @@
 
 .destination-image {
     position: relative;
-    height: 165px;
+    height: 180px;
     overflow: hidden;
     background: #edf1f3;
 }
@@ -248,7 +248,7 @@
 }
 
 .destination-content > p {
-    min-height: 65px;
+    /* min-height: 65px; */
     margin-bottom: 12px;
     color: #77808c;
     font-size: 11px;
