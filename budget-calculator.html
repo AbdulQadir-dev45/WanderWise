@@ -1,170 +1,332 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <meta name="theme-color" content="#047857" />
-    <meta
-      name="description"
-      content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays."
-    />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#047857">
+    <meta name="description" content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays.">
 
     <title>WanderWise - Explore the World</title>
 
     <!-- Google Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap"
-      rel="stylesheet"
-    />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
 
     <!-- Font Awesome -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
-    />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 
     <!-- CSS -->
-    <link rel="stylesheet" href="css/styles.css" />
-    <link rel="stylesheet" href="css/budget.css" />
-  </head>
-  <body>
-    <div class="main-box">
-      <!-- HEADER -->
-      <header id="header">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/budget.css">
+</head>
+<body>
+
+<div class="main-box">
+    <header id="header">
         <div class="container navbar">
-          <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
+            <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
 
-          <nav class="nav-links">
-            <a href="index.html" class="nav-item">Home</a>
-            <a href="destinations.html" class="nav-item">Destinations</a>
-            <a href="hotels.html" class="nav-item">Hotels</a>
-            <a href="trip-planner.html" class="nav-item">Trip Planner</a>
-            <a
-              href="budget-calculator.html"
-              class="nav-item active"
-              aria-current="page"
-              >Budget</a
-            >
-            <a href="my-trips.html" class="nav-item">My Trips</a>
-            <a href="favorites.html" class="nav-item favorites">
-              <i class="fa-solid fa-heart"></i>Favorites
-              <span class="count">0</span>
-            </a>
-          </nav>
+            <nav class="nav-links"> 
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="destinations.html" class="nav-item">Destinations</a>
+                <a href="hotels.html" class="nav-item">Hotels</a>
+                <a href="trip-planner.html" class="nav-item">Trip Planner</a>
+                <a href="budget-calculator.html" class="nav-item active">Budget</a>
+                <a href="my-trips.html" class="nav-item" aria-current="page">My Trips</a>
+                <a href="favorites.html" class="nav-item favorites">
+                    <i class="fa-solid fa-heart"></i>Favorites
+                    <span class="count">0</span>
+                </a>
+            </nav>
 
-          <div class="nav-buttons">
-            <a href="login.html" class="login-btn">Login</a>
-            <a href="signup.html" class="start-btn">Get Started</a>
-          </div>
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="start-btn">Get Started</a>
+            </div>
 
-          <div class="mobile-buttons">
-            <a href="favorites.html" class="icon-btn" aria-label="Favorites"
-              ><i class="fa-solid fa-heart"></i><span class="count">0</span></a
-            >
-            <button
-              class="icon-btn"
-              id="menu-btn"
-              aria-label="Toggle navigation"
-              aria-expanded="false"
-            >
-              <i class="fa-solid fa-bars"></i>
-            </button>
-          </div>
+            <div class="mobile-buttons">
+                <a href="favorites.html" class="icon-btn" aria-label="Favorites"><i class="fa-solid fa-heart"></i><span class="count">0</span></a>
+                <button class="icon-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false"><i class="fa-solid fa-bars"></i></button>
+            </div>
         </div>
 
         <div class="mobile-menu" id="mobile-menu">
-          <a href="index.html"
-            ><i class="fa-solid fa-house"></i> Home</a
-          >
-          <a href="destinations.html"
-            ><i class="fa-solid fa-location-dot"></i> Destinations</a
-          >
-          <a href="trip-planner.html"
-            ><i class="fa-solid fa-route"></i> Trip Planner</a
-          >
-          <a href="budget-calculator.html" class="active"
-            ><i class="fa-solid fa-wallet"></i> Budget</a
-          >
-          <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
-          
-          <a href="my-trips.html"><i class="fa-solid fa-suitcase"></i> My Trips</a>
-          <a href="favorites.html"
-            ><i class="fa-solid fa-heart"></i> Favorites (0)</a
-          >
-          <div class="mobile-menu-auth">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="destinations.html"><i class="fa-solid fa-location-dot"></i> Destinations</a>
+            <a href="trip-planner.html"><i class="fa-solid fa-route"></i> Trip Planner</a>
+            <a href="budget-calculator.html" class="active"><i class="fa-solid fa-wallet"></i> Budget</a>
+            <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
+            <a href="my-trips.html"><i class="fa-solid fa-suitcase"></i> My Trips</a>
+            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Favorites (0)</a>
+            <div class="mobile-menu-auth">
                 <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
                 <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
-          </div>
+            </div>
         </div>
-      </header>
+    </header>
 
-      <!-- MAIN CONTENT -->
-      <main id="app">
-        <!-- ================= BUDGET SECTION ================= -->
+     
+<!-- MAIN CONTENT -->
+<main id="app">
 
-        <section class="budget-section">
-          <div class="container">
+    <!-- ================= BUDGET SECTION ================= -->
+
+    <section class="budget-section">
+        <div class="container">
+
             <!-- Heading -->
 
             <div class="budget-heading">
-              <p>SMART TRAVEL PLANNER</p>
+                <p>SMART TRAVEL PLANNER</p>
 
-              <h1>Find Trips Within Your Budget</h1>
+                <h1>Find Trips Within Your Budget</h1>
 
-              <span>
-                Tell us what you want to spend and how many people are going. We
-                will instantly show you all matching destinations.
-              </span>
+                <span>
+                    Tell us what you want to spend and how many people are going. We
+                    will instantly show you all matching destinations.
+                </span>
             </div>
 
             <!-- Budget Calculator -->
 
             <div class="budget-box">
-              <div class="budget-inputs">
-                <div class="input-group">
-                  <label>Total Budget (PKR)</label>
+                <div class="budget-inputs">
 
-                  <input
-                    type="number"
-                    id="totalBudget"
-                    placeholder="Enter your budget (PKR)"
-                    min="1"
-                    step="1000"
-                  />
+                    <div class="input-group">
+                        <label>Total Budget (PKR)</label>
+
+                        <input
+                            type="number"
+                            id="totalBudget"
+                            placeholder="Enter your budget (PKR)"
+                            min="1"
+                            step="1000"
+                        />
+                    </div>
+
+                    <div class="input-group">
+                        <label>Travelers</label>
+
+                        <input
+                            type="number"
+                            id="travelers"
+                            placeholder="Enter number of travelers"
+                            min="1"
+                            step="1"
+                        />
+                    </div>
+
+                    <button type="button" id="updateMatchesBtn" class="update-btn">
+                        <i class="fa-solid fa-sliders"></i> Update Matches
+                    </button>
+
                 </div>
 
-                <div class="input-group">
-                  <label>Travelers</label>
-
-                  <input
-                    type="number"
-                    id="travelers"
-                    placeholder="Enter number of travelers"
-                    min="1"
-                    step="1"
-                  />
+                <div class="budget-summary">
+                    <p id="totalSummary"></p>
+                    <p id="personSummary"></p>
                 </div>
-
-                <button type="button" id="updateMatchesBtn" class="update-btn">
-                  <i class="fa-solid fa-sliders"></i> Update Matches
-                </button>
-              </div>
-
-              <div class="budget-summary">
-                <p id="totalSummary"></p>
-
-                <p id="personSummary"></p>
-              </div>
             </div>
 
             <!-- Destination Cards -->
 
             <div class="destination-container" id="destinationContainer"></div>
-          </div>
-        </section>
-      </main>
+
+        </div>
+    </section>
+
+    <!-- ================= DESTINATION CARD TEMPLATE ================= -->
+
+<template id="destinationCardTemplate">
+
+    <article class="destination-card">
+
+        <div class="destination-image">
+
+            <img src="" alt="" loading="lazy">
+
+            <span class="category"></span>
+
+        </div>
+
+        <div class="destination-content">
+
+            <h2></h2>
+
+            <p class="destination-description"></p>
+
+            <div class="price-box">
+
+                <div class="price-row">
+                    <span>Per Person:</span>
+                    <strong class="person-price"></strong>
+                </div>
+
+                <div class="price-row">
+                    <span class="traveler-label"></span>
+                    <strong class="total-price"></strong>
+                </div>
+
+                <div class="price-row">
+                    <span>Budget Left:</span>
+                    <strong class="budget-left"></strong>
+                </div>
+
+            </div>
+
+            <div class="card-buttons">
+
+                <button
+                    type="button"
+                    class="details-btn"
+                    data-action="details"
+                >
+                    <i class="fa-regular fa-eye"></i>
+                    View Details
+                </button>
+
+                <button
+                    type="button"
+                    class="plan-btn"
+                    data-action="plan"
+                >
+                    <i class="fa-solid fa-route"></i>
+                    Plan Trip
+                </button>
+
+            </div>
+
+        </div>
+
+    </article>
+
+</template>
+
+
+<!-- ================= NO MATCH TEMPLATE ================= -->
+
+<template id="noMatchTemplate">
+
+    <div class="no-match">
+        <h3></h3>
+        <p></p>
+    </div>
+
+</template>
+
+
+<!-- ================= DESTINATION DETAILS POPUP TEMPLATE ================= -->
+
+<template id="destinationDetailsTemplate">
+
+    <div class="details-modal">
+
+        <div
+            class="details-modal-content"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="detailsTitle"
+        >
+
+            <button
+                type="button"
+                class="close-details"
+                aria-label="Close destination details"
+            >
+                <i class="fa-solid fa-xmark"></i>
+            </button>
+
+            <div class="details-image">
+
+                <img src="" alt="">
+
+                <div class="details-image-overlay">
+
+                    <div class="details-badges">
+
+                        <span class="hero-badge category"></span>
+
+                        <span class="hero-badge">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="country"></span>
+                        </span>
+
+                        <span class="hero-badge">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating"></span>
+                            <span>Guest rating</span>
+                        </span>
+
+                    </div>
+
+                    <h2 id="detailsTitle"></h2>
+
+                </div>
+
+            </div>
+
+            <div class="details-info">
+
+                <section class="popup-detail-section">
+                    <h3>About The Destination</h3>
+                    <p class="description"></p>
+                </section>
+
+                <section class="popup-detail-section">
+                    <h3>Key Highlights &amp; Experiences</h3>
+                    <ul class="popup-highlights-list"></ul>
+                </section>
+
+                <section class="popup-season">
+                    <i class="fa-regular fa-calendar-days"></i>
+                    <div>
+                        <strong>Recommended Season</strong>
+                        <span class="season"></span>
+                    </div>
+                </section>
+
+                <section class="popup-cost">
+
+                    <h3>Estimated Trip Cost</h3>
+
+                    <div class="popup-cost-row">
+                        <span>Per Person</span>
+                        <strong class="person-cost"></strong>
+                    </div>
+
+                    <div class="popup-cost-row">
+                        <span class="travelers-cost-label"></span>
+                        <strong class="total-cost"></strong>
+                    </div>
+
+                    <div class="popup-cost-row">
+                        <span>Budget Remaining</span>
+                        <strong class="remaining-cost"></strong>
+                    </div>
+
+                    <p>
+                        Estimated prices are for planning purposes and may vary.
+                    </p>
+
+                </section>
+
+                <button type="button" class="close-details-btn">
+                    Back to Budget Calculator
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</template>
+
+
+</main>
+
+
 
       <!-- FOOTER -->
       <footer id="footer">
