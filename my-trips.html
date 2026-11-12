@@ -18,12 +18,11 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/my-trip.css">
 </head>
 <body>
 
 <div class="main-box">
-
-    <!-- HEADER -->
     <header id="header">
         <div class="container navbar">
             <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
@@ -69,7 +68,79 @@
     <!-- MAIN CONTENT -->
     <main id="app">
         
+     
 
+    <!-- HERO SECTION -->
+    <section class="mytrips-hero">
+
+        <span class="hero-small-text">YOUR TRAVEL JOURNEY</span>
+
+        <h1>My Trips &amp; Stays</h1>
+
+        <p>
+            Manage your saved adventures, view itinerary details,
+            and check hotel reservation vouchers all in one place.
+        </p>
+
+    </section>
+
+
+    <!-- MY TRIPS CONTENT -->
+    <section class="mytrips-container">
+
+        <!-- STATISTICS -->
+        <div class="mytrips-stats">
+
+            <div class="stat-box">
+                <span>SAVED TRIPS</span>
+                <h2 id="totalTrips">0</h2>
+            </div>
+
+            <div class="stat-box">
+                <span>TOTAL TRAVELERS</span>
+                <h2 id="totalTravelers">0</h2>
+            </div>
+
+            <div class="stat-box">
+                <span>ESTIMATED BUDGET</span>
+                <h2 id="totalBudget">PKR 0</h2>
+            </div>
+
+            <div class="stat-box">
+                <span>HOTEL BOOKINGS</span>
+                <h2 id="totalHotels">0</h2>
+            </div>
+
+        </div>
+
+
+        <!-- TRIPS PANEL -->
+        <div class="trips-panel">
+
+            <!-- TABS -->
+            <div class="trips-tabs">
+
+                <button class="tab-btn active" id="itineraryTab">
+                    <i class="fa-solid fa-list"></i>
+                    My Itineraries (<span id="tripCount">0</span>)
+                </button>
+
+                <button class="tab-btn" id="hotelTab">
+                    <i class="fa-solid fa-hotel"></i>
+                    Hotel Reservations (<span id="hotelCount">0</span>)
+                </button>
+
+            </div>
+
+
+            <!-- TRIPS WILL SHOW HERE -->
+            <div id="tripsContent"></div>
+
+        </div>
+
+    </section>
+
+    
     </main>
 
     <!-- FOOTER -->
@@ -121,6 +192,7 @@
 
 <!-- JavaScript -->
 <script type="module" src="js/app.js"></script>
+<script type="module" src="js/my-trip.js"></script>
 
 </body>
 </html>
