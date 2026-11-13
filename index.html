@@ -27,7 +27,8 @@
     <!-- HEADER -->
     <header id="header">
         <div class="container navbar">
-            <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
+            <!-- <a href="index.html" class="logo">Wander<span>Wise</span>.</a> -->
+            <a href="index.html"><img class="logo" src="WanderWise Travel Logo.png" alt="WanderWise Travel Logo"></a>
 
             <nav class="nav-links"> 
                 <a href="index.html" class="nav-item active">Home</a>
@@ -35,7 +36,6 @@
                 <a href="hotels.html" class="nav-item">Hotels</a>
                 <a href="trip-planner.html" class="nav-item">Trip Planner</a>
                 <a href="budget-calculator.html" class="nav-item">Budget</a>
-                <a href="booking.html" class="nav-item">Booking</a>
                 <a href="my-trips.html" class="nav-item">My Trips</a>
                 <a href="favorites.html" class="nav-item favorites">
                     <i class="fa-solid fa-heart"></i>Favorites
@@ -60,10 +60,12 @@
             <a href="trip-planner.html"><i class="fa-solid fa-route"></i> Trip Planner</a>
             <a href="budget-calculator.html"><i class="fa-solid fa-wallet"></i> Budget</a>
             <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
-            <a href="booking.html"><i class="fa-solid fa-calendar-check"></i> Booking</a>
-            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Saved Favorites (0)</a>
-            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-            <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+            <a href="my-trips.html"><i class="fa-solid fa-suitcase"></i> My Trips</a>
+            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Favorites (0)</a>
+            <div class="mobile-menu-auth">
+                <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+            </div>
         </div>
     </header>
 
@@ -72,51 +74,96 @@
 
         <!-- HERO SECTION -->
         <section class="hero">
+            <div class="hero-overlay"></div>
 
             <div class="container hero-content">
                 <div class="hero-left">
-                    <span class="hero-tag"><i class="fa-solid fa-compass"></i>Your Journey Starts Here</span>
-                    <h1>Explore The World, <br> <span>One Journey</span> At A Time.</h1>
+                    <span class="hero-tag">
+                        <i class="fa-solid fa-compass"></i>
+                        YOUR JOURNEY STARTS HERE
+                    </span>
+
+                    <h1>
+                        The World Is Waiting.
+                        <span>Go Find Yourself.</span>
+                    </h1>
+
                     <p class="hero-text">
-                        Discover breathtaking destinations, craft bespoke itineraries,
-                        calculate precise travel budgets, and book verified boutique
-                        stays effortlessly.
+                        Discover remarkable places, plan meaningful journeys,
+                        and turn your travel dreams into unforgettable memories
+                        with WanderWise.
                     </p>
+
                     <div class="hero-buttons">
-                        <a href="destinations.html" class="btn main-btn">Explore Destinations<i class="fa-solid fa-arrow-right"></i></a>
-                        <a href="trip-planner.html" class="btn border-btn"><i class="fa-solid fa-map"></i>Plan Your Trip</a>
+                        <a href="destinations.html" class="btn hero-main-btn">
+                            Explore Destinations
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                        <a href="trip-planner.html" class="btn hero-outline-btn">
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            Plan Your Trip
+                        </a>
                     </div>
 
-                    <div class="stats">
-                        <div class="stat">
-                            <strong>50+</strong>
-                            <span>Curated Places</span>
+                    <div class="hero-stats">
+                        <div class="hero-stat">
+                            <strong>50<span>+</span></strong>
+                            <small>Curated Places</small>
                         </div>
-                        <div class="stat">
-                            <strong>100+</strong>
-                            <span>Happy Travelers</span>
+                        <div class="hero-stat">
+                            <strong>1000<span>+</span></strong>
+                            <small>Happy Travelers</small>
                         </div>
-                        <div class="stat">
-                            <strong>20+</strong>
-                            <span>Verified Hotels</span>
+                        <div class="hero-stat">
+                            <strong>50<span>+</span></strong>
+                            <small>Verified Hotels</small>
                         </div>
                     </div>
                 </div>
 
                 <div class="hero-right">
-                    <div class="hero-image">
-                        <img src="https://images.unsplash.com/photo-1464822759023-fed622ff2c3b?auto=format&fit=crop&w=1200&q=85" alt="Scenic mountain peaks and alpine lake">
-                    </div>
-                    <div class="info-card">
-                        <div class="icon-box"><i class="fa-solid fa-plane"></i></div>
-                        <div>
-                            <strong>Your Next Adventure</strong>
-                            <span>Discover handpicked getaways</span>
+                    <div class="hero-destination-card">
+                        <div class="hero-card-image">
+                            <img
+                                src="https://images.unsplash.com/photo-1470770841072-f978cf4d019e?auto=format&fit=crop&w=900&q=85"
+                                alt="Peaceful alpine lake surrounded by mountains"
+                            >
+                            <span class="hero-card-badge">
+                                <i class="fa-solid fa-star"></i>
+                                TRAVELER'S PICK
+                            </span>
                         </div>
+
+                        <div class="hero-card-content">
+                            <div>
+                                <span class="hero-card-kicker">FIND YOUR NEXT ESCAPE</span>
+                                <h3>Nature is calling.</h3>
+                                <p>
+                                    New places. Fresh perspectives. Memories for life.
+                                </p>
+                            </div>
+                            <a href="destinations.html" aria-label="Explore destinations">
+                                <i class="fa-solid fa-arrow-up-right-from-square"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <div class="hero-floating-note">
+                        <span class="hero-note-icon">
+                            <i class="fa-solid fa-earth-americas"></i>
+                        </span>
+                        <span>
+                            <strong>Your next story starts here</strong>
+                            <small>Make every journey count</small>
+                        </span>
                     </div>
                 </div>
             </div>
 
+            <div class="hero-bottom-line">
+                <span><i class="fa-solid fa-location-dot"></i> MADE FOR THE CURIOUS</span>
+                <span>DISCOVER <i class="fa-solid fa-arrow-right"></i> EXPLORE <i class="fa-solid fa-arrow-right"></i> EXPERIENCE</span>
+            </div>
         </section>
         
         <!-- POPULAR DESTINATIONS -->
@@ -252,24 +299,35 @@
         </section>
 
     </main>
-
+    
     <!-- FOOTER -->
     <footer id="footer">
         <div class="footer">
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-about">
+                        <div class="footer-logo">
+                            <img src="WanderWise Travel Logo.png" alt="WanderWise Travel Logo">
+                        </div>
 
-                        <div class="footer-logo">Wander<span>Wise</span>.</div>
                         <p>
-                            Discover breathtaking destinations, craft meaningful
-                            journeys, and make every trip memorable.
-                            Your next adventure starts here.
+                            Discover breathtaking destinations, craft meaningful journeys,
+                            and make every trip memorable. Your next adventure starts here.
                         </p>
+
+                        <div class="footer-socials">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
 
-                    <div>
-                        <div class="footer-title">QUICK LINKS</div>
+                    <div class="footer-column">
+                        <div class="footer-title">
+                            <i class="fas fa-compass"></i> QUICK LINKS
+                        </div>
 
                         <div class="footer-list">
                             <a href="index.html">Home</a>
@@ -279,8 +337,10 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div class="footer-title">YOUR WANDERWISE</div>
+                    <div class="footer-column">
+                        <div class="footer-title">
+                            <i class="fas fa-star"></i> YOUR WANDERWISE
+                        </div>
 
                         <div class="footer-list">
                             <a href="budget-calculator.html">Budget Calculator</a>
@@ -292,8 +352,12 @@
                 </div>
 
                 <div class="footer-end">
-                    <span>© 2026 WanderWise. Explore the world, your way.All rights reserved.</span>
-                    <span>Built with precision and high performance.</span>
+                    <span>© 2026 WanderWise. Explore the world, your way. All rights reserved.</span>
+
+                    <span class="footer-credit">
+                        Built with precision and high performance.
+                        <i class="fas fa-heart"></i>
+                    </span>
                 </div>
             </div>
         </div>

@@ -1,0 +1,360 @@
+/* ==================================
+   MY TRIPS PAGE
+================================== */
+
+.mytrips-hero {
+    background: linear-gradient(
+        180deg,
+        #effcf6 0%,
+        #ffffff 100%
+    );
+
+    text-align: center;
+    padding: 55px 20px 56px;
+    border-bottom: 1px solid #edf0ef;
+}
+
+.hero-small-text {
+    color: #08745b;
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 2px;
+}
+
+.mytrips-hero h1 {
+    font-family: "Playfair Display", serif;
+    font-size: clamp(34px, 4vw, 48px);
+    color: #101827;
+    margin: 17px 0 12px;
+}
+
+.mytrips-hero p {
+    max-width: 620px;
+    margin: auto;
+    color: #687586;
+    font-size: 14px;
+    line-height: 1.7;
+}
+
+
+/* MAIN CONTAINER */
+
+.mytrips-container {
+    max-width: 1180px;
+    width: 100%;
+    margin: auto;
+    padding: 30px 20px 70px;
+}
+
+
+/* ==================================
+   STATISTICS
+================================== */
+
+.mytrips-stats {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 14px;
+    margin-bottom: 28px;
+}
+
+.stat-box {
+    background: #fff;
+    border: 1px solid #dfe5e5;
+    border-radius: 16px;
+    padding: 20px;
+    min-height: 95px;
+}
+
+.stat-box span {
+    display: block;
+    color: #8792a1;
+    font-size: 9px;
+    letter-spacing: 1.2px;
+    font-weight: 800;
+    margin-bottom: 10px;
+}
+
+.stat-box h2 {
+    color: #08634f;
+    font-size: 25px;
+    font-weight: 800;
+    margin: 0;
+}
+
+
+/* ==================================
+   TRIPS PANEL
+================================== */
+
+.trips-panel {
+    background: #fff;
+    border: 1px solid #dfe5e5;
+    border-radius: 18px;
+    padding: 24px;
+    box-shadow: 0 3px 12px rgba(16, 24, 40, .025);
+}
+
+
+/* TABS */
+
+.trips-tabs {
+    display: flex;
+    gap: 10px;
+    border-bottom: 1px solid #e5e9eb;
+    margin-bottom: 20px;
+}
+
+.tab-btn {
+    background: transparent;
+    border: none;
+    color: #687586;
+    padding: 14px 18px;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    margin-bottom: -1px;
+}
+
+.tab-btn.active {
+    color: #08745b;
+    border-bottom-color: #08745b;
+}
+
+
+/* ==================================
+   TRIP CARDS
+================================== */
+
+.trips-list {
+    display: grid;
+    gap: 13px;
+}
+
+.trip-card {
+    background: #fff;
+    border: 1px solid #dfe5e5;
+    border-radius: 15px;
+    padding: 19px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 20px;
+    transition: .2s;
+}
+
+.trip-card:hover {
+    border-color: #b8d9ce;
+}
+
+.trip-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.trip-meta {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 9px;
+    color: #778391;
+    font-size: 10px;
+    margin-bottom: 10px;
+}
+
+.trip-status {
+    background: #d8f8e9;
+    color: #08745b;
+    padding: 5px 10px;
+    border-radius: 20px;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.trip-info h2 {
+    font-family: "Playfair Display", serif;
+    font-size: 19px;
+    color: #172033;
+    margin: 0 0 9px;
+}
+
+.trip-details {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 9px;
+    color: #718091;
+    font-size: 11px;
+}
+
+.trip-budget {
+    color: #08745b;
+    font-weight: 800;
+}
+
+
+/* ==================================
+   BUTTONS
+================================== */
+
+.trip-actions {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    flex-shrink: 0;
+}
+
+.trip-btn {
+    background: #fff;
+    border: 1px solid #cfd6dc;
+    border-radius: 11px;
+    padding: 9px 13px;
+    color: #344054;
+    font-size: 10px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.trip-btn:hover {
+    color: #08745b;
+    border-color: #08745b;
+}
+
+.delete-btn {
+    background: #e91e4d;
+    border-color: #e91e4d;
+    color: #fff;
+}
+
+.delete-btn:hover {
+    background: #c91640;
+    color: #fff;
+}
+
+
+/* ==================================
+   ITINERARY DETAILS
+================================== */
+
+.itinerary-details {
+    margin-top: 15px;
+    padding: 15px;
+    background: #f7faf9;
+    border-radius: 12px;
+    color: #536171;
+    font-size: 12px;
+    line-height: 1.8;
+}
+
+.itinerary-details h3 {
+    color: #08745b;
+    margin: 0 0 8px;
+    font-size: 14px;
+}
+
+
+/* ==================================
+   EMPTY MESSAGE
+================================== */
+
+.empty-state {
+    text-align: center;
+    padding: 45px 20px;
+    color: #778391;
+}
+
+.empty-state i {
+    font-size: 35px;
+    margin-bottom: 15px;
+    color: #9aa6b2;
+}
+
+.empty-state h3 {
+    font-family: "Playfair Display", serif;
+    font-size: 22px;
+    color: #172033;
+    margin-bottom: 8px;
+}
+
+.empty-state p {
+    font-size: 13px;
+    margin-bottom: 18px;
+}
+
+.empty-state a {
+    display: inline-block;
+    background: #08745b;
+    color: #fff;
+    text-decoration: none;
+    padding: 10px 17px;
+    border-radius: 10px;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+
+/* ==================================
+   MOBILE RESPONSIVE
+================================== */
+
+@media (max-width: 850px) {
+
+    .mytrips-stats {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+}
+
+
+@media (max-width: 600px) {
+
+    .mytrips-hero {
+        padding: 40px 15px;
+    }
+
+    .mytrips-hero h1 {
+        font-size: 34px;
+    }
+
+    .mytrips-container {
+        padding: 20px 14px 45px;
+    }
+
+    .trips-panel {
+        padding: 14px;
+    }
+
+    .trips-tabs {
+        gap: 2px;
+    }
+
+    .tab-btn {
+        padding: 12px 8px;
+        font-size: 10px;
+    }
+
+    .trip-card {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 16px;
+    }
+
+    .trip-actions {
+        width: 100%;
+    }
+
+    .trip-btn {
+        flex: 1;
+    }
+
+    .stat-box {
+        padding: 15px;
+        min-height: 85px;
+    }
+
+    .stat-box h2 {
+        font-size: 21px;
+    }
+
+}

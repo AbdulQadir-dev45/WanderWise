@@ -18,15 +18,15 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/my-trip.css">
 </head>
 <body>
 
 <div class="main-box">
-
-    <!-- HEADER -->
     <header id="header">
         <div class="container navbar">
-            <a href="index.html" class="logo">Wander<span>Wise</span>.</a>
+            <!-- <a href="index.html" class="logo">Wander<span>Wise</span>.</a> -->
+            <a href="index.html"><img class="logo" src="WanderWise Travel Logo.png" alt="WanderWise Travel Logo"></a>
 
             <nav class="nav-links"> 
                 <a href="index.html" class="nav-item">Home</a>
@@ -34,7 +34,6 @@
                 <a href="hotels.html" class="nav-item">Hotels</a>
                 <a href="trip-planner.html" class="nav-item">Trip Planner</a>
                 <a href="budget-calculator.html" class="nav-item">Budget</a>
-                <a href="booking.html" class="nav-item">Booking</a>
                 <a href="my-trips.html" class="nav-item active" aria-current="page">My Trips</a>
                 <a href="favorites.html" class="nav-item favorites">
                     <i class="fa-solid fa-heart"></i>Favorites
@@ -54,22 +53,96 @@
         </div>
 
         <div class="mobile-menu" id="mobile-menu">
-            <a href="index.html" class="active"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
             <a href="destinations.html"><i class="fa-solid fa-location-dot"></i> Destinations</a>
             <a href="trip-planner.html"><i class="fa-solid fa-route"></i> Trip Planner</a>
             <a href="budget-calculator.html"><i class="fa-solid fa-wallet"></i> Budget</a>
             <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
-            <a href="booking.html"><i class="fa-solid fa-calendar-check"></i> Booking</a>
-            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Saved Favorites (0)</a>
-            <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
-            <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+            <a href="my-trips.html" class="active"><i class="fa-solid fa-suitcase"></i> My Trips</a>
+            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Favorites (0)</a>
+            <div class="mobile-menu-auth">
+                <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+            </div>
         </div>
     </header>
 
     <!-- MAIN CONTENT -->
     <main id="app">
         
+     
 
+    <!-- HERO SECTION -->
+    <section class="mytrips-hero">
+
+        <span class="hero-small-text">YOUR TRAVEL JOURNEY</span>
+
+        <h1>My Trips &amp; Stays</h1>
+
+        <p>
+            Manage your saved adventures, view itinerary details,
+            and check hotel reservation vouchers all in one place.
+        </p>
+
+    </section>
+
+
+    <!-- MY TRIPS CONTENT -->
+    <section class="mytrips-container">
+
+        <!-- STATISTICS -->
+        <div class="mytrips-stats">
+
+            <div class="stat-box">
+                <span>SAVED TRIPS</span>
+                <h2 id="totalTrips">0</h2>
+            </div>
+
+            <div class="stat-box">
+                <span>TOTAL TRAVELERS</span>
+                <h2 id="totalTravelers">0</h2>
+            </div>
+
+            <div class="stat-box">
+                <span>ESTIMATED BUDGET</span>
+                <h2 id="totalBudget">PKR 0</h2>
+            </div>
+
+            <div class="stat-box">
+                <span>HOTEL BOOKINGS</span>
+                <h2 id="totalHotels">0</h2>
+            </div>
+
+        </div>
+
+
+        <!-- TRIPS PANEL -->
+        <div class="trips-panel">
+
+            <!-- TABS -->
+            <div class="trips-tabs">
+
+                <button class="tab-btn active" id="itineraryTab">
+                    <i class="fa-solid fa-list"></i>
+                    My Itineraries (<span id="tripCount">0</span>)
+                </button>
+
+                <button class="tab-btn" id="hotelTab">
+                    <i class="fa-solid fa-hotel"></i>
+                    Hotel Reservations (<span id="hotelCount">0</span>)
+                </button>
+
+            </div>
+
+
+            <!-- TRIPS WILL SHOW HERE -->
+            <div id="tripsContent"></div>
+
+        </div>
+
+    </section>
+
+    
     </main>
 
     <!-- FOOTER -->
@@ -78,17 +151,28 @@
             <div class="container">
                 <div class="footer-content">
                     <div class="footer-about">
+                        <div class="footer-logo">
+                            <img src="WanderWise Travel Logo.png" alt="WanderWise Travel Logo">
+                        </div>
 
-                        <div class="footer-logo">Wander<span>Wise</span>.</div>
                         <p>
-                            Discover breathtaking destinations, craft meaningful
-                            journeys, and make every trip memorable.
-                            Your next adventure starts here.
+                            Discover breathtaking destinations, craft meaningful journeys,
+                            and make every trip memorable. Your next adventure starts here.
                         </p>
+
+                        <div class="footer-socials">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
                     </div>
 
-                    <div>
-                        <div class="footer-title">QUICK LINKS</div>
+                    <div class="footer-column">
+                        <div class="footer-title">
+                            <i class="fas fa-compass"></i> QUICK LINKS
+                        </div>
 
                         <div class="footer-list">
                             <a href="index.html">Home</a>
@@ -98,8 +182,10 @@
                         </div>
                     </div>
 
-                    <div>
-                        <div class="footer-title">YOUR WANDERWISE</div>
+                    <div class="footer-column">
+                        <div class="footer-title">
+                            <i class="fas fa-star"></i> YOUR WANDERWISE
+                        </div>
 
                         <div class="footer-list">
                             <a href="budget-calculator.html">Budget Calculator</a>
@@ -111,8 +197,12 @@
                 </div>
 
                 <div class="footer-end">
-                    <span>© 2026 WanderWise. Explore the world, your way.All rights reserved.</span>
-                    <span>Built with precision and high performance.</span>
+                    <span>© 2026 WanderWise. Explore the world, your way. All rights reserved.</span>
+
+                    <span class="footer-credit">
+                        Built with precision and high performance.
+                        <i class="fas fa-heart"></i>
+                    </span>
                 </div>
             </div>
         </div>
@@ -121,6 +211,7 @@
 
 <!-- JavaScript -->
 <script type="module" src="js/app.js"></script>
+<script type="module" src="js/my-trip.js"></script>
 
 </body>
 </html>
