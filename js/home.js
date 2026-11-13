@@ -120,3 +120,198 @@ if (destinationGrid) {
 
 // INITIAL DISPLAY
 displayHomeDestinations();
+
+
+
+// ==========================================
+// WANDERWISE - HOME USER SYSTEM
+// =====================================
+
+
+// GET CURRENT USER
+
+function getCurrentUser() {
+
+    try {
+
+        const user = JSON.parse(
+            localStorage.getItem("wanderwiseCurrentUser")
+        );
+
+        return user;
+
+    } catch (error) {
+
+        return null;
+
+    }
+
+}
+
+
+// SHOW USER NAME ON HOME PAGE
+
+function updateHomeUser() {
+
+    const user = getCurrentUser();
+
+    if (!user || !user.name) {
+        return;
+    }
+
+    // FIND GET STARTED BUTTONS
+
+    const buttons = document.querySelectorAll(
+        "a, button"
+    );
+
+    buttons.forEach(function(button) {
+
+        const buttonText = button.textContent.trim().toLowerCase();
+
+        if (buttonText === "get started") {
+
+            button.textContent = user.name;
+
+            // Prevent returning to signup
+            button.addEventListener("click", function(event) {
+                event.preventDefault();
+            });
+
+        }
+
+    });
+
+}
+
+
+// RUN FUNCTION
+
+updateHomeUser();
+
+
+
+
+// =====================================
+// WANDERWISE - HOME LOGIN / LOGOUT
+// =====================================
+
+function updateWanderWiseAuth() {
+
+    // GET CURRENT USER
+
+    let user = null;
+
+    try {
+
+        user = JSON.parse(
+            localStorage.getItem("wanderwiseCurrentUser")
+        );
+
+    } catch (error) {
+
+        user = null;
+
+    }
+
+
+    // HOME PAGE BUTTONS
+
+    const desktopLogin = document.querySelector(
+        ".nav-buttons .login-btn"
+    );
+
+    const desktopStart = document.querySelector(
+        ".nav-buttons .start-btn"
+    );
+
+    const mobileLogin = document.querySelector(
+        '#mobile-menu a[href="login.html"]'
+    );
+
+    const mobileSignup = document.querySelector(
+        '#mobile-menu a[href="signup.html"]'
+    );
+
+
+    // IF USER IS NOT LOGGED IN
+
+    if (!user || !user.name) {
+        return;
+    }
+
+
+    // LOGOUT FUNCTION
+
+    function logoutUser(event) {
+
+        event.preventDefault();
+
+        localStorage.removeItem(
+            "wanderwiseCurrentUser"
+        );
+
+        window.location.href = "index.html";
+
+    }
+
+
+    // DESKTOP LOGIN TO LOGOUT
+
+    if (desktopLogin) {
+
+        desktopLogin.textContent = "Logout";
+        desktopLogin.href = "#";
+
+        desktopLogin.addEventListener(
+            "click",
+            logoutUser
+        );
+
+    }
+
+
+    // DESKTOP GET STARTED TO USER NAME
+
+    if (desktopStart) {
+
+        desktopStart.textContent = user.name;
+        desktopStart.href = "my-trips.html";
+
+    }
+
+
+    // MOBILE LOGIN TO LOGOUT
+
+    if (mobileLogin) {
+
+        mobileLogin.innerHTML =
+            '<i class="fa-solid fa-right-from-bracket"></i> Logout';
+
+        mobileLogin.href = "#";
+
+        mobileLogin.addEventListener(
+            "click",
+            logoutUser
+        );
+
+    }
+
+
+    // MOBILE CREATE ACCOUNT TO USER NAME
+
+    if (mobileSignup) {
+
+        mobileSignup.innerHTML =
+            '<i class="fa-solid fa-user"></i> ' + user.name;
+
+        mobileSignup.href = "my-trips.html";
+
+    }
+
+}
+
+
+// RUN FUNCTION
+
+updateWanderWiseAuth();
