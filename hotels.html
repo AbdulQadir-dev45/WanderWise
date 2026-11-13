@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="theme-color" content="#047857">
-    <meta name="description" content="WanderWise - Discover destinations, plan trips, calculate travel budgets and book stays.">
+    <meta name="description" content="WanderWise - Discover hotels, plan trips, calculate travel budgets and book stays.">
 
     <title>WanderWise - Explore the World</title>
 
@@ -18,6 +18,7 @@
 
     <!-- CSS -->
     <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/hotels.css">
 </head>
 <body>
 
@@ -69,7 +70,101 @@
     </header>
 
     <!-- MAIN CONTENT -->
-    <main id="app">
+
+   <main id="app">
+
+
+        <section class="hotel-banner">
+            <span class="eyebrow">DISCOVER NEW PLACES</span>
+            <h1>Explore Beautiful hotels</h1>
+            <p>Find your next adventure from our handpicked travel hotels.</p>
+        </section>
+
+        <section class="hotels-section" aria-label="Travel hotels">
+
+            <!-- SEARCH AND FILTER TOOLBAR -->
+            <div class="hotel-toolbar">
+                <div class="hotel-search">
+                    <i class="fa-solid fa-magnifying-glass" aria-hidden="true"></i>
+                    <input type="search" id="searchhotel" placeholder="Search hotels, countries, keywords..." aria-label="Search hotels" autocomplete="off">
+                </div>
+
+                <div class="category-filters" aria-label="Filter by category">
+                    <button type="button" class="category-filter active" data-category="All" aria-pressed="true">All</button>
+                    <button type="button" class="category-filter" data-category="Mountains" aria-pressed="false">Mountains</button>
+                    <button type="button" class="category-filter" data-category="Beach" aria-pressed="false">Beach</button>
+                    <button type="button" class="category-filter" data-category="City" aria-pressed="false">City</button>
+                </div>
+
+                <div class="hotel-sort">
+                    <select id="sorthotels" aria-label="Sort hotels">
+                        <option value="featured">Featured</option>
+                        <option value="price-low">Price: Low to High</option>
+                        <option value="price-high">Price: High to Low</option>
+                        <option value="name">Name: A to Z</option>
+                        <option value="rating">Top Rated</option>
+                    </select>
+                </div>
+
+                <div class="hotel-results">
+                    <span id="hotelCount" aria-live="polite">Showing 0 hotels</span>
+                </div>
+            </div>
+
+            <!-- hotel CARDS -->
+            <div class="hotel-grid" id="allhotels" aria-live="polite" aria-label="Available hotels"></div>
+
+            <!-- CARD TEMPLATE -->
+            <template id="hotelTemplate">
+                <article class="hotel-card">
+                    <div class="hotel-image-wrap">
+                        <img src="" alt="" class="hotel-image" loading="lazy" decoding="async">
+                        <span class="hotel-category"></span>
+
+                        <button type="button" class="favorite-btn" aria-label="Add to favorites" aria-pressed="false">
+                            <i class="fa-regular fa-heart" aria-hidden="true"></i>
+                        </button>
+                    </div>
+
+                    <div class="hotel-card-content">
+                        <div class="hotel-meta">
+                            <span class="hotel-country">
+                                <i class="fa-solid fa-location-dot" aria-hidden="true"></i>
+                                <span class="country-name"></span>
+                            </span>
+                            <span class="hotel-rating">
+                                <i class="fa-solid fa-star" aria-hidden="true"></i>
+                                <span class="rating-value"></span>
+                            </span>
+                        </div>
+
+                        <h2 class="hotel-name"></h2>
+                        <p class="hotel-description"></p>
+
+                        <div class="hotel-card-bottom">
+                            <div class="hotel-budget">
+                                <span>Estimated Budget</span>
+                                <strong class="hotel-price"></strong>
+                            </div>
+
+                            <a href="#" class="hotel-link">
+                                View Details <i class="fa-solid fa-arrow-right" aria-hidden="true"></i>
+                            </a>
+                        </div>
+                    </div>
+                </article>
+            </template>
+
+            <!-- NO RESULTS -->
+            <div id="nohotels" class="no-results" role="status" hidden>
+                <i class="fa-solid fa-map-location-dot" aria-hidden="true"></i>
+                <h2>No hotels found</h2>
+                <p>Try another search or select a different category.</p>
+                <button type="button" id="resethotelFilters">Clear Filters</button>
+            </div>
+        </section>
+
+        
         
 
     </main>
@@ -85,8 +180,9 @@
                         </div>
 
                         <p>
-                            Discover breathtaking destinations, craft meaningful journeys,
-                            and make every trip memorable. Your next adventure starts here.
+                            Discover breathtaking hotels, craft meaningful
+                            journeys, and make every trip memorable.
+                            Your next adventure starts here.
                         </p>
 
                         <div class="footer-socials">
@@ -105,7 +201,7 @@
 
                         <div class="footer-list">
                             <a href="index.html">Home</a>
-                            <a href="destinations.html">Explore Destinations</a>
+                            <a href="hotels.html">Explore hotels</a>
                             <a href="trip-planner.html">Plan Your Trip</a>
                             <a href="hotels.html">Find Hotels</a>
                         </div>
@@ -140,6 +236,7 @@
 
 <!-- JavaScript -->
 <script type="module" src="js/app.js"></script>
+<script type="module" src="js/hotels.js"></script>
 
 </body>
 </html>
