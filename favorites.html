@@ -72,89 +72,101 @@
 
     <!-- MAIN CONTENT -->
     <main id="app">
-        
         <section class="planner-banner">
             <div class="container">
-                <h1>My Favorite Destinations</h1>
-                <p>All the places you love, in one place.</p>
+                <h1>My Favorites</h1>
+                <p>All your favorite destinations and hotels in one place.</p>
             </div>
         </section>
 
-        <section class="section">
+        <section class="section favorites-section">
             <div class="container">
                 <div class="dashboard-heading">
                     <div>
-                        <h2>Saved Destinations</h2>
-                        <p>Your personal travel wishlist.</p>
+                        <h2>
+                            <i class="fa-solid fa-map-location-dot"></i>
+                            Saved Destinations
+                            <span class="section-count" id="destinationCount">0</span>
+                        </h2>
+                        <p>Your favorite places around the world.</p>
                     </div>
-
-                    <a href="destinations.html" class="btn btn-primary">
-                        Explore Destinations
-                    </a>
+                    <a href="destinations.html" class="btn btn-primary">Explore Destinations</a>
                 </div>
-
-                <div class="destination-grid" id="favoriteGrid"></div>
-
-                <div class="empty-state" id="emptyFavorites" hidden>
+                <div class="destination-grid" id="destinationGrid"></div>
+                <div class="empty-state" id="emptyDestinations" hidden>
                     <div class="empty-icon">
-                        <i class="fas fa-heart"></i>
+                        <i class="fa-solid fa-map-location-dot"></i>
                     </div>
-                    <h2>No Favorites Yet</h2>
+                    <h2>No Saved Destinations</h2>
                     <p>Explore destinations and save your favorite places here.</p>
-                    <a href="destinations.html" class="btn btn-primary">
-                        Explore Now
-                    </a>
+                    <a href="destinations.html" class="btn btn-primary">Explore Destinations</a>
                 </div>
             </div>
-
-                        
-            <template id="favoriteTemplate">
-                <article class="destination-card">
-                    <div class="destination-image-wrap">
-                        <img src="" alt="" class="destination-image" loading="lazy">
-
-                        <button type="button" class="favorite-btn active"
-                            aria-label="Remove from favorites" aria-pressed="true">
-                            <i class="fa-solid fa-heart"></i>
-                        </button>
-                    </div>
-
-                    <div class="destination-card-content">
-                        <div class="destination-meta">
-                            <span class="destination-country">
-                                <i class="fa-solid fa-location-dot"></i>
-                                <span class="country-name"></span>
-                            </span>
-
-                            <span class="destination-rating">
-                                <i class="fa-solid fa-star"></i>
-                                <span class="rating-value"></span>
-                            </span>
-                        </div>
-
-                        <h2 class="destination-name"></h2>
-                        <p class="destination-description"></p>
-
-                        <div class="destination-card-bottom">
-                            <div class="destination-budget">
-                                <span>Estimated Budget</span>
-                                <strong class="destination-price"></strong>
-                            </div>
-
-                            <a href="#" class="destination-link">
-                                View Details
-                                <i class="fa-solid fa-arrow-right"></i>
-                            </a>
-                        </div>
-                    </div>
-                </article>
-            </template>
-
         </section>
 
+        <section class="section favorites-section">
+            <div class="container">
+                <div class="dashboard-heading">
+                    <div>
+                        <h2>
+                            <i class="fa-solid fa-hotel"></i>
+                            Saved Hotels
+                            <span class="section-count" id="hotelCount">0</span>
+                        </h2>
+                        <p>Your favorite hotels and places to stay.</p>
+                    </div>
+                    <a href="hotels.html" class="btn btn-primary">Explore Hotels</a>
+                </div>
+                <div class="destination-grid" id="hotelGrid"></div>
+                <div class="empty-state" id="emptyHotels" hidden>
+                    <div class="empty-icon">
+                        <i class="fa-solid fa-hotel"></i>
+                    </div>
+                    <h2>No Saved Hotels</h2>
+                    <p>Explore hotels and save your favorite stays here.</p>
+                    <a href="hotels.html" class="btn btn-primary">Explore Hotels</a>
+                </div>
+            </div>
+        </section>
+
+        <template id="favoriteTemplate">
+            <article class="destination-card">
+                <div class="destination-image-wrap">
+                    <img src="" alt="" class="destination-image" loading="lazy">
+                    <button type="button" class="favorite-btn active" aria-label="Remove from favorites" aria-pressed="true">
+                        <i class="fa-solid fa-heart"></i>
+                    </button>
+                </div>
+                <div class="destination-card-content">
+                    <div class="destination-meta">
+                        <span class="destination-country">
+                            <i class="fa-solid fa-location-dot"></i>
+                            <span class="country-name"></span>
+                        </span>
+                        <span class="destination-category"></span>
+                        <span class="destination-rating">
+                            <i class="fa-solid fa-star"></i>
+                            <span class="rating-value"></span>
+                        </span>
+                    </div>
+                    <h2 class="destination-name"></h2>
+                    <p class="destination-description"></p>
+                    <div class="destination-card-bottom">
+                        <div class="destination-budget">
+                            <span class="price-label">Estimated Budget</span>
+                            <strong class="destination-price"></strong>
+                        </div>
+                        <a href="#" class="destination-link">
+                            View Details
+                            <i class="fa-solid fa-arrow-right"></i>
+                        </a>
+                    </div>
+                </div>
+            </article>
+        </template>
     </main>
 
-    <!-- FOOTER -->
+        <!-- FOOTER -->
     <footer id="footer">
         <div class="footer">
             <div class="container">

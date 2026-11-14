@@ -15,17 +15,25 @@ const FAVORITES_KEY = "wanderwiseFavorites";
 
 let selectedCategory = "All";
 
+// GET FAVORITES
 function getFavorites() {
     try {
-        const favorites = JSON.parse(localStorage.getItem(FAVORITES_KEY) || "[]");
+        const favorites = JSON.parse(
+            localStorage.getItem(FAVORITES_KEY) || "[]"
+        );
+
         return Array.isArray(favorites) ? favorites : [];
     } catch {
         return [];
     }
 }
 
+// SAVE FAVORITES
 function saveFavorites(favorites) {
-    localStorage.setItem(FAVORITES_KEY, JSON.stringify(favorites));
+    localStorage.setItem(
+        FAVORITES_KEY,
+        JSON.stringify(favorites)
+    );
 }
 
 // FORMAT PRICE
@@ -42,8 +50,8 @@ function updateFavoriteCounts() {
     });
 }
 
-// FILTER hotels
-function getFilteredhotels() {
+// FILTER HOTELS
+function getFilteredHotels() {
     const searchText = searchInput.value.trim().toLowerCase();
 
     let filtered = hotels.filter(hotel => {
@@ -60,7 +68,7 @@ function getFilteredhotels() {
         return matchesSearch && matchesCategory;
     });
 
-    // SORT hotels
+    // SORT HOTELS
     switch (sortSelect.value) {
         case "price-low":
             filtered.sort((a, b) => a.price - b.price);
@@ -85,8 +93,8 @@ function getFilteredhotels() {
     return filtered;
 }
 
-// CREATE hotel CARD FROM HTML TEMPLATE
-function createhotelCard(hotel) {
+// CREATE HOTEL CARD
+function createHotelCard(hotel) {
     const card = hotelTemplate.content.cloneNode(true);
 
     const article = card.querySelector(".hotel-card");
@@ -100,8 +108,9 @@ function createhotelCard(hotel) {
     const price = card.querySelector(".hotel-price");
     const link = card.querySelector(".hotel-link");
 
+    const favoriteId = `hotel-${hotel.id}`;
     const favorites = getFavorites();
-    const isFavorite = favorites.includes(hotel.id);
+    const isFavorite = favorites.includes(favoriteId);
 
     article.dataset.id = hotel.id;
 
@@ -120,13 +129,19 @@ function createhotelCard(hotel) {
 
     favoriteButton.dataset.id = hotel.id;
     favoriteButton.classList.toggle("active", isFavorite);
-    favoriteButton.setAttribute("aria-pressed", String(isFavorite));
+
+    favoriteButton.setAttribute(
+        "aria-pressed",
+        String(isFavorite)
+    );
+
     favoriteButton.setAttribute(
         "aria-label",
         isFavorite ? "Remove from favorites" : "Add to favorites"
     );
 
     const heartIcon = favoriteButton.querySelector("i");
+
     heartIcon.className = isFavorite
         ? "fa-solid fa-heart"
         : "fa-regular fa-heart";
@@ -134,14 +149,16 @@ function createhotelCard(hotel) {
     return card;
 }
 
-// DISPLAY hotels
-function displayhotels() {
-    const filtered = getFilteredhotels();
+// DISPLAY HOTELS
+function displayHotels() {
+    if (!hotelGrid || !hotelTemplate) return;
+
+    const filtered = getFilteredHotels();
 
     hotelGrid.replaceChildren();
 
     filtered.forEach(hotel => {
-        hotelGrid.appendChild(createhotelCard(hotel));
+        hotelGrid.appendChild(createHotelCard(hotel));
     });
 
     hotelCount.textContent =
@@ -153,7 +170,7 @@ function displayhotels() {
     updateFavoriteCounts();
 }
 
-// CATEGORY FILTER BUTTONS
+// CATEGORY FILTERS
 categoryButtons.forEach(button => {
     button.addEventListener("click", () => {
         selectedCategory = button.dataset.category;
@@ -165,15 +182,15 @@ categoryButtons.forEach(button => {
             item.setAttribute("aria-pressed", String(isActive));
         });
 
-        displayhotels();
+        displayHotels();
     });
 });
 
 // SEARCH
-searchInput.addEventListener("input", displayhotels);
+searchInput.addEventListener("input", displayHotels);
 
 // SORT
-sortSelect.addEventListener("change", displayhotels);
+sortSelect.addEventListener("change", displayHotels);
 
 // FAVORITES
 hotelGrid.addEventListener("click", event => {
@@ -181,15 +198,16 @@ hotelGrid.addEventListener("click", event => {
 
     if (!button) return;
 
-    const hotelId = Number(button.dataset.id);
+    const favoriteId = `hotel-${button.dataset.id}`;
     const favorites = getFavorites();
 
-    const updatedFavorites = favorites.includes(hotelId)
-        ? favorites.filter(id => id !== hotelId)
-        : [...favorites, hotelId];
+    const updatedFavorites = favorites.includes(favoriteId)
+        ? favorites.filter(id => id !== favoriteId)
+        : [...favorites, favoriteId];
 
     saveFavorites(updatedFavorites);
-    displayhotels();
+
+    displayHotels();
 });
 
 // RESET FILTERS
@@ -205,8 +223,8 @@ resetButton.addEventListener("click", () => {
         button.setAttribute("aria-pressed", String(isActive));
     });
 
-    displayhotels();
+    displayHotels();
 });
 
 // INITIAL DISPLAY
-displayhotels();
+displayHotels();

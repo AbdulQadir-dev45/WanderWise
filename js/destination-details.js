@@ -72,7 +72,7 @@ const destination = destinations.find(
 
 const destinationInfo = {
     1: {
-        season: "October to April",
+        season: "All time",
         highlights: [
             "Masjid al-Haram",
             "Kaaba and Mataf",
@@ -318,6 +318,61 @@ const destinationInfo = {
             "Eagle Square",
             "Pantai Cenang Beach",
             "Kilim Geoforest Park"
+        ]
+    },
+
+    // --- 26. Amsterdam, Netherlands ---
+    26: {
+        season: "April to May and September to November",
+        highlights: [
+            "Canal Cruise",
+            "Rijksmuseum",
+            "Anne Frank House",
+            "Vondelpark"
+        ]
+    },
+
+    // --- 27. Kuala Lumpur, Malaysia ---
+    27: {
+        season: "May to July and December to February",
+        highlights: [
+            "Petronas Twin Towers",
+            "Batu Caves",
+            "KL Tower",
+            "Bukit Bintang"
+        ]
+    },
+
+    // --- 28. Venice, Italy ---
+    28: {
+        season: "April to June and September to October",
+        highlights: [
+            "Grand Canal",
+            "St. Mark's Basilica",
+            "Rialto Bridge",
+            "Doge's Palace"
+        ]
+    },
+
+    // --- 29. Antalya, Turkey ---
+    29: {
+        season: "April to June and September to October",
+        highlights: [
+            "Konyaalti Beach",
+            "Kaleici Old Town",
+            "Duden Waterfalls",
+            "Hadrian's Gate"
+        ]
+    },
+
+    // --- 30. Yerevan, Armenia ---
+    30: {
+        season: "May to June and September to October",
+        highlights: [
+            "Republic Square",
+            "Cascade Complex",
+            "Garni Temple",
+            "Lake Sevan"
         ]
     }
 };
