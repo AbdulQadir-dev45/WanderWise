@@ -1,0 +1,349 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Travel Package Details - WanderWise</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Playfair+Display:wght@600;700;800&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/packages-details.css">
+</head>
+
+<body>
+
+<div class="main-box">
+
+    <!-- HEADER -->
+    <header id="header">
+        <div class="container navbar">
+
+            <a href="index.html">
+                <img class="logo" src="WanderWise Travel Logo.png" alt="WanderWise Travel Logo">
+            </a>
+
+            <nav class="nav-links">
+                <a href="index.html" class="nav-item">Home</a>
+                <a href="destinations.html" class="nav-item">Destinations</a>
+                <a href="hotels.html" class="nav-item">Hotels</a>
+                <a href="trip-planner.html" class="nav-item">Trip Planner</a>
+                <a href="budget-calculator.html" class="nav-item">Budget</a>
+                <a href="my-trips.html" class="nav-item">My Trips</a>
+                <a href="favorites.html" class="nav-item favorites">
+                    <i class="fa-solid fa-heart"></i> Favorites
+                    <span class="count">0</span>
+                </a>
+            </nav>
+
+            <div class="nav-buttons">
+                <a href="login.html" class="login-btn">Login</a>
+                <a href="signup.html" class="start-btn">Get Started</a>
+            </div>
+
+            <div class="mobile-buttons">
+                <a href="favorites.html" class="icon-btn" aria-label="Favorites">
+                    <i class="fa-solid fa-heart"></i>
+                    <span class="count">0</span>
+                </a>
+
+                <button class="icon-btn" id="menu-btn" aria-label="Toggle navigation" aria-expanded="false">
+                    <i class="fa-solid fa-bars"></i>
+                </button>
+            </div>
+
+        </div>
+
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="index.html"><i class="fa-solid fa-house"></i> Home</a>
+            <a href="destinations.html"><i class="fa-solid fa-location-dot"></i> Destinations</a>
+            <a href="trip-planner.html"><i class="fa-solid fa-route"></i> Trip Planner</a>
+            <a href="budget-calculator.html"><i class="fa-solid fa-wallet"></i> Budget</a>
+            <a href="hotels.html"><i class="fa-solid fa-hotel"></i> Hotels</a>
+            <a href="my-trips.html"><i class="fa-solid fa-suitcase"></i> My Trips</a>
+            <a href="favorites.html"><i class="fa-solid fa-heart"></i> Favorites</a>
+
+            <div class="mobile-menu-auth">
+                <a href="login.html"><i class="fa-solid fa-right-to-bracket"></i> Login</a>
+                <a href="signup.html"><i class="fa-solid fa-user-plus"></i> Create Account</a>
+            </div>
+        </div>
+
+    </header>
+
+    <!-- PACKAGE DETAILS -->
+
+<main>
+
+    <section class="package-detail-hero">
+
+        <img src="" alt="" id="packageImage">
+
+        <div class="package-detail-overlay"></div>
+
+        <div class="container package-detail-heading">
+
+            <a href="index.html" class="back-link">
+                <i class="fa-solid fa-arrow-left"></i>
+                Back to Home
+            </a>
+
+            <span id="packageCategory">TRAVEL PACKAGE</span>
+
+            <h1 id="packageTitle">Travel Package</h1>
+
+            <p id="packageShortDescription"></p>
+
+            <span class="package-discount" id="packageDiscount"></span>
+
+        </div>
+
+    </section>
+
+
+    <section class="section package-detail-section">
+
+        <div class="container">
+
+            <div class="package-detail-layout">
+
+                <div class="package-main-content">
+
+                    <span class="small-title">DISCOVER YOUR JOURNEY</span>
+
+                    <h2>About This Package</h2>
+
+                    <p id="packageDescription"></p>
+
+
+                    <h2>Available Destinations</h2>
+
+                    <div id="packagePlaces" class="package-places"></div>
+
+
+                    <h2>Available Hotels</h2>
+
+                    <div id="packageHotels" class="package-hotels">
+
+                        <p>Select a destination to view its available hotels.</p>
+
+                    </div>
+
+
+                    <h2>Package Information</h2>
+
+                    <ul id="packageIncludes" class="package-includes"></ul>
+
+                </div>
+
+
+                <!-- PACKAGE CALCULATOR -->
+
+                <aside class="package-info-card">
+
+                    <span class="small-title">PLAN YOUR PACKAGE</span>
+
+                    <h3 id="packageInfoTitle">Travel Package</h3>
+
+
+                    <div class="package-form-group">
+
+                        <label for="packageDestination">Select Destination</label>
+
+                        <select id="packageDestination">
+                            <option value="">Select Destination</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="package-form-group">
+
+                        <label for="packageHotel">Select Hotel</label>
+
+                        <select id="packageHotel">
+                            <option value="">Select Hotel</option>
+                        </select>
+
+                    </div>
+
+
+                    <div class="package-form-group">
+
+                        <label for="packageTravelers">Travelers</label>
+
+                        <input type="number" id="packageTravelers"
+                               min="1" value="2">
+
+                    </div>
+
+
+                    <div class="package-form-group">
+
+                        <label for="packageNights">Hotel Nights</label>
+
+                        <input type="number" id="packageNights"
+                               min="1" value="3">
+
+                    </div>
+
+
+                    <div class="package-price-details">
+
+                        <div class="package-price-row">
+                            <span>Destination Cost</span>
+                            <strong id="destinationCost">PKR 0</strong>
+                        </div>
+
+                        <div class="package-price-row">
+                            <span>Hotel Cost</span>
+                            <strong id="hotelCost">PKR 0</strong>
+                        </div>
+
+                        <div class="package-price-row">
+                            <span>Manual Estimated Cost</span>
+                            <strong id="manualCost">PKR 0</strong>
+                        </div>
+
+                        <div class="package-price-row discount-row">
+                            <span id="discountLabel">Package Discount</span>
+                            <strong id="discountAmount">PKR 0</strong>
+                        </div>
+
+                        <div class="package-final-price">
+
+                            <span>WanderWise Package Price</span>
+
+                            <strong id="finalPackagePrice">PKR 0</strong>
+
+                        </div>
+
+                    </div>
+
+
+                    <p class="package-price-note">
+                        Estimates are calculated using the destination and hotel
+                        prices available in WanderWise data. Hotel cost is calculated
+                        per night. This is an estimated price, not a confirmed booking.
+                    </p>
+
+
+                    <button type="button"
+        class="btn main-btn package-plan-btn package-save-btn"
+        id="savePackageBtn">
+
+    <i class="fa-solid fa-bookmark"></i>
+    Save Package to My Trips
+
+</button>
+
+<p id="packageSaveMessage" class="package-save-message"></p>
+
+
+                    <a href="destinations.html"
+                       class="btn border-btn package-explore-btn">
+
+                        Explore Destinations
+
+                    </a>
+
+                </aside>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</main>
+
+    <!-- FOOTER -->
+
+    <footer id="footer">
+        <div class="footer">
+
+            <div class="container">
+
+                <div class="footer-content">
+
+                    <div class="footer-about">
+
+                        <div class="footer-logo">
+                            <img src="WanderWise Travel Logo.png" alt="WanderWise Travel Logo">
+                        </div>
+
+                        <p>
+                            Discover breathtaking destinations, craft meaningful journeys,
+                            and make every trip memorable. Your next adventure starts here.
+                        </p>
+
+                        <div class="footer-socials">
+                            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                            <a href="#" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
+                            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                            <a href="#" aria-label="X"><i class="fab fa-x-twitter"></i></a>
+                            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+                        </div>
+
+                    </div>
+
+                    <div class="footer-column">
+
+                        <div class="footer-title">
+                            <i class="fas fa-compass"></i> QUICK LINKS
+                        </div>
+
+                        <div class="footer-list">
+                            <a href="index.html">Home</a>
+                            <a href="destinations.html">Explore Destinations</a>
+                            <a href="trip-planner.html">Plan Your Trip</a>
+                            <a href="hotels.html">Find Hotels</a>
+                        </div>
+
+                    </div>
+
+                    <div class="footer-column">
+
+                        <div class="footer-title">
+                            <i class="fas fa-star"></i> YOUR WANDERWISE
+                        </div>
+
+                        <div class="footer-list">
+                            <a href="budget-calculator.html">Budget Calculator</a>
+                            <a href="favorites.html">Saved Favorites</a>
+                            <a href="my-trips.html">My Trips & Stays</a>
+                            <a href="login.html">User Account</a>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="footer-end">
+                    <span>© 2026 WanderWise. Explore the world, your way. All rights reserved.</span>
+
+                    <span class="footer-credit">
+                        Built with precision and high performance.
+                        <i class="fas fa-heart"></i>
+                    </span>
+                </div>
+
+            </div>
+
+        </div>
+    </footer>
+
+</div>
+
+<script type="module" src="js/app.js"></script>
+<script type="module" src="js/packages-details.js"></script>
+
+</body>
+</html>
