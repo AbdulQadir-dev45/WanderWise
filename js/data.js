@@ -248,5 +248,55 @@ export const destinations = [
         rating: 4.7,
         description: "Relax on tropical beaches, explore islands and enjoy coastal views.",
         image: "https://images.unsplash.com/photo-1500375592092-40eb2168fd21?w=800"
+    },
+        {
+        id: 26,
+        name: "Amsterdam",
+        country: "Netherlands",
+        category: "City",
+        price: 165000,
+        rating: 4.8,
+        description: "Explore beautiful canals, historic streets, museums and Dutch culture.",
+        image: "https://images.unsplash.com/photo-1512470876302-972faa2aa9a4?w=800"
+    },
+    {
+        id: 27,
+        name: "Kuala Lumpur",
+        country: "Malaysia",
+        category: "City",
+        price: 80000,
+        rating: 4.7,
+        description: "Discover modern skyscrapers, famous landmarks and vibrant shopping streets.",
+        image: "https://images.unsplash.com/photo-1596422846543-75c6fc197f07?w=800"
+    },
+    {
+        id: 28,
+        name: "Venice",
+        country: "Italy",
+        category: "City",
+        price: 170000,
+        rating: 4.9,
+        description: "Experience romantic canals, beautiful bridges and historic Italian architecture.",
+        image: "https://images.unsplash.com/photo-1514890547357-a9ee288728e0?w=800"
+    },
+    {
+        id: 29,
+        name: "Antalya",
+        country: "Turkey",
+        category: "Beach",
+        price: 105000,
+        rating: 4.8,
+        description: "Enjoy sunny beaches, turquoise waters and beautiful Mediterranean scenery.",
+        image: "https://images.unsplash.com/photo-1516483638261-f4dbaf036963?w=800"
+    },
+    {
+        id: 30,
+        name: "Yerevan",
+        country: "Armenia",
+        category: "City",
+        price: 70000,
+        rating: 4.6,
+        description: "Discover charming streets, historic architecture and beautiful mountain views.",
+        image: "https://images.unsplash.com/photo-1524492412937-b28074a5d7da?w=800"
     }
 ];

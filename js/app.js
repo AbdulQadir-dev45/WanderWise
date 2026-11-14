@@ -17,3 +17,16 @@ if (menuBtn && mobileMenu) {
         );
     });
 }
+
+
+export function updateFavoritesCount() {
+    const favorites = JSON.parse(
+        localStorage.getItem("wanderwiseFavorites") || "[]"
+    );
+
+    document.querySelectorAll(".count").forEach(count => {
+        count.textContent = favorites.length;
+    });
+}
+
+updateFavoritesCount();
